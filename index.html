@@ -37,8 +37,10 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
 body{background:var(--ink);color:var(--text);font-family:var(--body);font-size:15.5px;line-height:1.55;min-height:100vh}
-.wrap{max-width:880px;margin:0 auto;padding:22px 18px 60px;padding-top:max(22px, calc(14px + env(safe-area-inset-top, 0px)));padding-bottom:calc(60px + env(safe-area-inset-bottom, 0px))}
-@media (display-mode: standalone){.wrap{padding-top:max(30px, calc(22px + env(safe-area-inset-top, 0px)))}}
+.wrap{max-width:880px;margin:0 auto;padding:22px 18px 60px;padding-bottom:calc(60px + env(safe-area-inset-bottom, 0px))}
+#safeprobe{position:fixed;top:0;left:0;width:1px;height:env(safe-area-inset-top, 0px);pointer-events:none;opacity:0}
+body.pwa .wrap{padding-top:calc(18px + env(safe-area-inset-top, 0px))}
+body.pwa-fixed .wrap{padding-top:68px}
 button{font-family:inherit;cursor:pointer}
 :focus-visible{outline:2px solid var(--amber);outline-offset:2px;border-radius:4px}
 ::selection{background:var(--amber);color:var(--amber-ink)}
@@ -176,8 +178,7 @@ footer{margin-top:34px;text-align:center;color:#5D6E82;font-family:var(--mono);f
   .wrap{padding:16px 12px 50px}
   .brand{font-size:16px;letter-spacing:.10em}
   .brand small{font-size:10px}
-  #onair{font-size:0;padding:9px 10px}
-  #onair::before{margin-right:0;font-size:11px}
+  #onair{display:none}
   .traincard{padding:18px 14px 16px}
   .msg{max-width:94%}
   .inputrow{flex-wrap:wrap}
@@ -187,6 +188,7 @@ footer{margin-top:34px;text-align:center;color:#5D6E82;font-family:var(--mono);f
 </style>
 </head>
 <body>
+<div id="safeprobe"></div>
 <div class="wrap">
 
 <header>
@@ -1685,7 +1687,23 @@ document.addEventListener('click', (e) => {
   if (b) speak(b.textContent);
 });
 
+/* ---------- topo seguro no iPhone: o iOS nem sempre reporta safe-area no app instalado ---------- */
+function applySafeTop() {
+  let standalone = false;
+  try {
+    standalone = window.navigator.standalone === true
+      || (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+  } catch (e) {}
+  if (!standalone) return;
+  document.body.classList.add('pwa');
+  const probe = $('#safeprobe');
+  const inset = probe ? probe.getBoundingClientRect().height : 0;
+  if (inset < 20) document.body.classList.add('pwa-fixed');
+}
+
 (async function init() {
+  applySafeTop();
+  window.addEventListener('orientationchange', () => setTimeout(applySafeTop, 250));
   $$('.tab').forEach((b) => { b.onclick = () => showTab(b.dataset.tab); });
 
   const sel = $('#t-cat');
