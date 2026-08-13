@@ -1,6 +1,12 @@
 # Interview Room
 
-Treino de entrevistas de emprego em inglês, nível executivo. App estático (um único HTML), pronto para publicar e instalar como aplicativo no iPhone (PWA).
+Treino de entrevistas de emprego em inglês, nível executivo. Interface toda em inglês. App estático (um único HTML), sem dependências externas e sem chamadas de rede: funciona 100% offline depois de instalado.
+
+Três abas:
+
+- **Train**: 34 perguntas em 4 categorias (clássicas, liderança executiva, comportamentais em STAR e curveballs), cada uma com o que o entrevistador avalia, como responder, resposta modelo com áudio, frases prontas e follow-ups prováveis. Cronômetro, ditado, modo de autoteste e progresso.
+- **Mock drill**: entrevista simulada offline. Perguntas sorteadas, modelos escondidos, follow-ups imprevisíveis do próprio banco e cronômetro. No fim, seus tempos por pergunta, quantas ficaram na faixa de 60 a 90 segundos e as respostas modelo para comparar.
+- **Improv kit**: estruturas de resposta, frases para ganhar tempo, redirecionar e fechar forte, seus números em inglês e pronúncia.
 
 ```
 index.html            o app completo
@@ -79,20 +85,7 @@ Com repositório privado, o GitHub Pages exige o plano **Pro** (pago) e ainda as
 
 Se você usou a opção A, o login da Cloudflare aparece na primeira abertura e depois fica lembrado.
 
-Progresso e chave da API são salvos por navegador: se configurar no Safari e depois usar o Chrome, refaça a configuração da chave.
-
----
-
-## Ativar a IA (feedback e simulação)
-
-Fora do claude.ai, esses recursos precisam da sua chave da API Anthropic:
-
-1. Crie uma chave em **console.anthropic.com > API Keys**. A conta da API tem cobrança própria; cada feedback ou entrevista simulada custa centavos no modelo Sonnet.
-2. No app, toque em **⚙** no topo, cole a chave e salve.
-
-A chave fica gravada **apenas no navegador do seu aparelho** e nunca vai para o repositório. Ainda assim, não divulgue a URL: quem abrir o app não vê sua chave, mas na opção B qualquer pessoa com o endereço lê seu conteúdo.
-
-Sem chave, todo o resto funciona: perguntas, estratégias, respostas modelo, áudio, ditado, cronômetro, kit de improviso e progresso.
+O progresso é salvo por navegador: as marcações feitas no Safari não aparecem no Chrome, e vice-versa.
 
 ---
 
@@ -106,4 +99,4 @@ Sem chave, todo o resto funciona: perguntas, estratégias, respostas modelo, áu
 
 ## Offline
 
-Após a primeira visita, o app abre sem internet (estudo, prática, cronômetro e kit). Feedback e simulação exigem conexão.
+Após a primeira visita, o app funciona inteiro sem internet. Ele não faz nenhuma chamada de rede e não envia nada para lugar nenhum.

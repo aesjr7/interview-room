@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 <meta name="apple-mobile-web-app-title" content="Interview Room" />
-<title>Interview Room · Treino de entrevistas em inglês</title>
+<title>Interview Room · English interview practice</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -39,8 +39,7 @@ html{-webkit-text-size-adjust:100%}
 body{background:var(--ink);color:var(--text);font-family:var(--body);font-size:15.5px;line-height:1.55;min-height:100vh}
 .wrap{max-width:880px;margin:0 auto;padding:22px 18px 60px;padding-bottom:calc(60px + env(safe-area-inset-bottom, 0px))}
 #safeprobe{position:fixed;top:0;left:0;width:1px;height:env(safe-area-inset-top, 0px);pointer-events:none;opacity:0}
-body.pwa .wrap{padding-top:calc(18px + env(safe-area-inset-top, 0px))}
-body.pwa-fixed .wrap{padding-top:68px}
+body.pwa .wrap{padding-top:calc(10px + env(safe-area-inset-top, 0px))}
 button{font-family:inherit;cursor:pointer}
 :focus-visible{outline:2px solid var(--amber);outline-offset:2px;border-radius:4px}
 ::selection{background:var(--amber);color:var(--amber-ink)}
@@ -139,20 +138,29 @@ textarea::placeholder,input::placeholder{color:#5D6E82}
 .navrow{display:flex;justify-content:space-between;gap:10px;margin-top:24px}
 .navrow .btn{min-width:120px}
 
-/* ---------- simular ---------- */
+/* ---------- mock drill ---------- */
 .setup{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px;max-width:560px;margin:12px auto}
 .setup .label:first-child{margin-top:0}
-.check{display:flex;align-items:center;gap:9px;margin:18px 0 4px;font-size:14.5px;cursor:pointer}
+.setup select{width:100%}
+.check{display:flex;align-items:center;gap:9px;margin:14px 0 4px;font-size:14.5px;cursor:pointer}
 .check input{width:16px;height:16px;accent-color:var(--amber)}
-.simhead{font-size:12px;color:var(--muted);letter-spacing:.05em;margin:6px 0 12px}
-.chat{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;max-height:56vh;min-height:180px;overflow-y:auto}
-.msg{max-width:86%;padding:11px 15px;border-radius:12px;margin:9px 0;font-size:15px;line-height:1.55;white-space:pre-wrap}
-.msg.ai{background:var(--paper);color:var(--paper-ink);border:1px solid var(--paper-line);margin-right:auto;border-bottom-left-radius:4px}
-.msg.me{background:var(--panel2);border:1px solid var(--line);margin-left:auto;border-bottom-right-radius:4px}
-.msg.typing{color:#9C8A5F;letter-spacing:.2em}
-.inputrow{display:flex;gap:10px;align-items:flex-end;margin-top:12px}
-.inputrow textarea{margin-top:0;min-height:52px;flex:1}
-.inputrow .btn{flex-shrink:0;padding:13px 18px}
+.mockcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:28px 20px 20px;margin-top:12px;text-align:center}
+.mockhead{display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.mockq{font-family:var(--disp);font-weight:800;font-size:clamp(20px,4.2vw,30px);line-height:1.24;margin:20px auto 6px;max-width:620px}
+.fulabel{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-top:18px}
+.mocktimer{font-family:var(--mono);font-size:40px;font-weight:500;letter-spacing:.04em;margin:16px 0 2px}
+.mocktimer.good{color:var(--ok)}
+.mocktimer.over{color:var(--warn)}
+.mockcard .note{max-width:520px;margin:10px auto}
+.sumrow{display:flex;gap:10px;align-items:baseline;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--line);padding:12px 4px;color:var(--text);font-size:14px}
+.sumrow:last-child{border-bottom:none}
+.sumrow .st{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap;min-width:52px}
+.sumrow .lt{flex:1;line-height:1.35}
+.sumbox{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:4px 14px;margin-top:10px}
+.bigstat{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin:14px 0 4px}
+.bigstat div{text-align:center}
+.bigstat b{display:block;font-family:var(--mono);font-size:26px;font-weight:500;color:var(--amber)}
+.bigstat span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 
 /* ---------- kit ---------- */
 .kitblock{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px;margin-bottom:14px}
@@ -166,12 +174,12 @@ textarea::placeholder,input::placeholder{color:#5D6E82}
 .frame div{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13.5px}
 .frame b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px}
 
-.hright{display:flex;align-items:center;gap:6px;flex-shrink:0}
-#cfg{font-size:20px;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;color:var(--amber);display:flex;align-items:center;justify-content:center}
-#cfg:hover{border-color:var(--amber)}
-.cfgpanel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;margin:10px 0 2px}
-.cfgpanel .label:first-child{margin-top:0}
-.cfgpanel input{width:100%}
+
+
+
+
+
+
 footer{margin-top:34px;text-align:center;color:#5D6E82;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em}
 
 @media (max-width:600px){
@@ -192,63 +200,54 @@ footer{margin-top:34px;text-align:center;color:#5D6E82;font-family:var(--mono);f
 <div class="wrap">
 
 <header>
-  <div class="brand">Interview Room<small>Treino de entrevistas em inglês · nível executivo</small></div>
-  <div class="hright"><button class="mini" id="cfg" title="Configurar chave da API">⚙</button><div id="onair">ON AIR</div></div>
+  <div class="brand">Interview Room<small>English interview practice · executive level</small></div>
+  <div id="onair">ON AIR</div>
 </header>
 
-<div id="cfg-panel" class="cfgpanel" hidden>
-  <div class="label">Chave da API Anthropic (habilita feedback e simulação fora do claude.ai)</div>
-  <input type="password" id="cfg-key" placeholder="sk-ant-..." autocomplete="off" />
-  <div class="row">
-    <button class="btn primary small" id="cfg-save">Salvar</button>
-    <button class="btn small" id="cfg-del">Remover</button>
-    <span class="note tiny" id="cfg-state"></span>
-  </div>
-  <p class="note tiny">Crie a sua em console.anthropic.com, em API Keys. A chave fica salva apenas neste aparelho e nunca vai para o GitHub. Dentro do claude.ai a IA funciona sem chave.</p>
-</div>
+
 
 <nav class="tabs">
-  <button class="tab active" data-tab="treinar">Treinar</button>
-  <button class="tab" data-tab="simular">Simular</button>
-  <button class="tab" data-tab="kit">Kit de improviso</button>
+  <button class="tab active" data-tab="treinar">Train</button>
+  <button class="tab" data-tab="mock">Mock drill</button>
+  <button class="tab" data-tab="kit">Improv kit</button>
 </nav>
 
 <!-- ============ TREINAR (estudo + prática no mesmo fluxo) ============ -->
 <section id="tab-treinar">
   <div class="controls">
     <select id="t-cat"></select>
-    <button class="btn small" id="t-shuffle">Ordem: sequencial</button>
-    <button class="btn small" id="t-list">☰ Lista</button>
-    <button class="btn small" id="t-test" title="Esconde os modelos para se autotestar">Ocultar modelos</button>
+    <button class="btn small" id="t-shuffle">Order: sequential</button>
+    <button class="btn small" id="t-list">☰ List</button>
+    <button class="btn small" id="t-test" title="Hide model answers to test yourself">Hide models</button>
     <span id="t-progress"></span>
   </div>
   <div id="t-listpanel" hidden></div>
   <div id="t-stage"></div>
 </section>
 
-<!-- ============ SIMULAR ============ -->
-<section id="tab-simular" hidden>
-  <div id="sim-root"></div>
+<!-- ============ MOCK DRILL (offline) ============ -->
+<section id="tab-mock" hidden>
+  <div id="mock-root"></div>
 </section>
 
 <!-- ============ KIT DE IMPROVISO ============ -->
 <section id="tab-kit" hidden>
-  <p class="note">Improviso não é dom: é estrutura decorada + fatos seus na ponta da língua. Leia uma vez, depois use tudo em voz alta. Toque em qualquer frase em inglês para ouvir.</p>
+  <p class="note">Improvising is not a gift: it is memorized structure plus your own facts on the tip of your tongue. Read it once, then use all of it out loud. Tap any line to hear it.</p>
 
   <div class="kitblock">
-    <h3>Estruturas de resposta</h3>
-    <p class="sub">Escolha a estrutura em 2 segundos e a resposta se organiza sozinha.</p>
+    <h3>Answer structures</h3>
+    <p class="sub">Pick a structure in two seconds and the answer organizes itself.</p>
     <div class="frame">
-      <div><b>STAR</b>Situation · Task · Action · Result. Para "Tell me about a time...". 1 ou 2 frases de contexto, ação com "I" (não só "we"), resultado com número.</div>
-      <div><b>Past · Present · Future</b>Para "Tell me about yourself". De onde veio, o que faz hoje, para onde vai.</div>
-      <div><b>PREP</b>Point · Reason · Example · Point. Para perguntas de opinião. Posição, motivo, exemplo, reforço da posição.</div>
-      <div><b>Regra dos 3</b>"Three things..." organiza qualquer resposta e sinaliza clareza executiva.</div>
+      <div><b>STAR</b>Situation · Task · Action · Result. For "Tell me about a time...". One or two lines of context, action with "I" (not only "we"), result with a number.</div>
+      <div><b>Past · Present · Future</b>For "Tell me about yourself". Where you came from, what you do now, where you are heading.</div>
+      <div><b>PREP</b>Point · Reason · Example · Point. For opinion questions. Position, reason, example, restate the position.</div>
+      <div><b>Rule of three</b>"Three things..." organizes any answer and signals executive clarity.</div>
     </div>
   </div>
 
   <div class="kitblock">
-    <h3>Ganhar tempo com elegância</h3>
-    <p class="sub">5 a 8 segundos de estrutura valem mais que uma resposta imediata e confusa.</p>
+    <h3>Buying time with elegance</h3>
+    <p class="sub">Five to eight seconds of structure beat an instant, messy answer.</p>
     <div class="chips small">
       <button class="chip phrase say-en">That's a great question. Let me think of the best example.</button>
       <button class="chip phrase say-en">Let me take a second to structure my answer.</button>
@@ -259,8 +258,8 @@ footer{margin-top:34px;text-align:center;color:#5D6E82;font-family:var(--mono);f
   </div>
 
   <div class="kitblock">
-    <h3>Confirmar a pergunta</h3>
-    <p class="sub">Se não entendeu, confirmar é sinal de senioridade, não de fraqueza.</p>
+    <h3>Checking the question</h3>
+    <p class="sub">If you did not catch it, asking is a sign of seniority, not weakness.</p>
     <div class="chips small">
       <button class="chip phrase say-en">Just to make sure I answer what you need: are you asking about the team or the technology?</button>
       <button class="chip phrase say-en">If I understand correctly, you want to know how I would handle that here, right?</button>
@@ -269,8 +268,8 @@ footer{margin-top:34px;text-align:center;color:#5D6E82;font-family:var(--mono);f
   </div>
 
   <div class="kitblock">
-    <h3>Pontes e redirecionamento</h3>
-    <p class="sub">Para quando a pergunta não bate exatamente com a sua experiência.</p>
+    <h3>Bridging and redirecting</h3>
+    <p class="sub">For when the question does not quite match your experience.</p>
     <div class="chips small">
       <button class="chip phrase say-en">I haven't faced that exact situation, but here's the closest one.</button>
       <button class="chip phrase say-en">What I'd highlight from that experience is this.</button>
@@ -280,8 +279,8 @@ footer{margin-top:34px;text-align:center;color:#5D6E82;font-family:var(--mono);f
   </div>
 
   <div class="kitblock">
-    <h3>Corrigir-se sem pânico</h3>
-    <p class="sub">Errar uma palavra não importa. Travar por causa do erro, sim.</p>
+    <h3>Correcting yourself without panic</h3>
+    <p class="sub">Getting a word wrong does not matter. Freezing because of it does.</p>
     <div class="chips small">
       <button class="chip phrase say-en">Let me rephrase that.</button>
       <button class="chip phrase say-en">Actually, a better example is this one.</button>
@@ -290,8 +289,8 @@ footer{margin-top:34px;text-align:center;color:#5D6E82;font-family:var(--mono);f
   </div>
 
   <div class="kitblock">
-    <h3>Quando não souber</h3>
-    <p class="sub">A estrutura que constrói confiança em vez de destruí-la.</p>
+    <h3>When you don't know</h3>
+    <p class="sub">The structure that builds trust instead of destroying it.</p>
     <div class="chips small">
       <button class="chip phrase say-en">I don't know that off the top of my head, but here's how I'd find out.</button>
       <button class="chip phrase say-en">I'd rather check than guess. My hypothesis is this.</button>
@@ -299,8 +298,8 @@ footer{margin-top:34px;text-align:center;color:#5D6E82;font-family:var(--mono);f
   </div>
 
   <div class="kitblock">
-    <h3>Fechar com força</h3>
-    <p class="sub">Nunca termine com "so... yeah". Termine no seu ponto forte.</p>
+    <h3>Closing strong</h3>
+    <p class="sub">Never end on "so... yeah". End on your strongest point.</p>
     <div class="chips small">
       <button class="chip phrase say-en">So the short version is: I've done this before, and I know how to do it here.</button>
       <button class="chip phrase say-en">And that's exactly why I'm confident about this role.</button>
@@ -309,8 +308,8 @@ footer{margin-top:34px;text-align:center;color:#5D6E82;font-family:var(--mono);f
   </div>
 
   <div class="kitblock">
-    <h3>Seus números na ponta da língua</h3>
-    <p class="sub">Fale cada um em voz alta até sair sem pensar. São eles que fazem o entrevistador anotar.</p>
+    <h3>Your numbers, ready to say</h3>
+    <p class="sub">Say each one out loud until it comes without thinking. These are what make an interviewer take notes.</p>
     <div class="chips small">
       <button class="chip phrase say-en">twenty years in technology</button>
       <button class="chip phrase say-en">I built two technology organizations from scratch</button>
@@ -319,729 +318,768 @@ footer{margin-top:34px;text-align:center;color:#5D6E82;font-family:var(--mono);f
       <button class="chip phrase say-en">more than seventy million offers processed per day</button>
       <button class="chip phrase say-en">two international certifications of a regulated platform</button>
       <button class="chip phrase say-en">a case presented at AWS Summit Sao Paulo</button>
-      <button class="chip phrase say-en">M&A experience: integration and due diligence in the sale to Zoom</button>
+      <button class="chip phrase say-en">M&amp;A experience: integration and due diligence in the sale to Zoom</button>
       <button class="chip phrase say-en">a twenty-four seven real-money operation</button>
     </div>
   </div>
 
   <div class="kitblock">
-    <h3>Pronúncia: palavras que você vai usar</h3>
-    <p class="sub">Toque para ouvir. Repita em voz alta 3 vezes cada.</p>
-    <div class="pronrow"><button class="chip phrase say-en">comfortable</button><span class="tip">3 sílabas: KUMF-tuh-bul</span></div>
-    <div class="pronrow"><button class="chip phrase say-en">colleagues</button><span class="tip">2 sílabas: KÓ-liigz</span></div>
-    <div class="pronrow"><button class="chip phrase say-en">focused</button><span class="tip">FOU-kust, com "ou" longo</span></div>
-    <div class="pronrow"><button class="chip phrase say-en">available</button><span class="tip">uh-VEI-luh-bul</span></div>
-    <div class="pronrow"><button class="chip phrase say-en">reliability</button><span class="tip">ri-lai-uh-BÍ-li-ti</span></div>
-    <div class="pronrow"><button class="chip phrase say-en">architecture</button><span class="tip">ÁR-ki-tek-tcher</span></div>
-    <div class="pronrow"><button class="chip phrase say-en">budget</button><span class="tip">BÂ-djit</span></div>
-    <div class="pronrow"><button class="chip phrase say-en">revenue</button><span class="tip">RÉ-vuh-niu</span></div>
-    <div class="pronrow"><button class="chip phrase say-en">growth</button><span class="tip">grouth, com "th" final suave</span></div>
-    <div class="pronrow"><button class="chip phrase say-en">world</button><span class="tip">uârld, com o "r" antes do "l"</span></div>
-    <div class="pronrow"><button class="chip phrase say-en">hired</button><span class="tip">uma sílaba longa: ráierd</span></div>
-    <div class="pronrow"><button class="chip phrase say-en">through, thought, though</button><span class="tip">thru · thót · dhou: três palavras diferentes</span></div>
+    <h3>Pronunciation: words you will actually use</h3>
+    <p class="sub">Tap to listen. Repeat each one out loud three times.</p>
+    <div class="pronrow"><button class="chip phrase say-en">comfortable</button><span class="tip">3 syllables: KUMF-tuh-bul</span></div>
+    <div class="pronrow"><button class="chip phrase say-en">colleagues</button><span class="tip">2 syllables: KOL-eegz</span></div>
+    <div class="pronrow"><button class="chip phrase say-en">focused</button><span class="tip">FOH-kust, long "oh"</span></div>
+    <div class="pronrow"><button class="chip phrase say-en">available</button><span class="tip">uh-VEY-luh-bul</span></div>
+    <div class="pronrow"><button class="chip phrase say-en">reliability</button><span class="tip">ri-lai-uh-BIL-i-ti</span></div>
+    <div class="pronrow"><button class="chip phrase say-en">architecture</button><span class="tip">AR-ki-tek-cher</span></div>
+    <div class="pronrow"><button class="chip phrase say-en">budget</button><span class="tip">BUH-jit</span></div>
+    <div class="pronrow"><button class="chip phrase say-en">revenue</button><span class="tip">REV-uh-noo</span></div>
+    <div class="pronrow"><button class="chip phrase say-en">growth</button><span class="tip">grohth, soft "th" at the end</span></div>
+    <div class="pronrow"><button class="chip phrase say-en">world</button><span class="tip">wurld, the "r" comes before the "l"</span></div>
+    <div class="pronrow"><button class="chip phrase say-en">hired</button><span class="tip">one long syllable: HY-erd</span></div>
+    <div class="pronrow"><button class="chip phrase say-en">through, thought, though</button><span class="tip">throo · thawt · thoh: three different words</span></div>
   </div>
 
   <div class="kitblock">
-    <h3>Regras de ouro (dos seus materiais)</h3>
+    <h3>Golden rules</h3>
     <ul>
-      <li>Nunca fale mal de empregos, chefes ou empresas anteriores. Nunca.</li>
-      <li>Salário: só depois de sinal de proposta. Saída pronta: <button class="chip phrase say-en">Does that mean you're making me an offer?</button></li>
-      <li>Tenha sempre 3 perguntas preparadas para o final. Sair sem perguntas mata a vaga.</li>
-      <li>Pesquisa de 20 minutos antes de cada entrevista: produto, modelo de receita, notícias dos últimos 6 meses, concorrentes, LinkedIn dos entrevistadores.</li>
-      <li>Respostas faladas de 60 a 90 segundos. Mais que 2 minutos, você perdeu a sala.</li>
-      <li>Feche cada resposta no seu ponto forte, não em "so... yeah".</li>
+      <li>Never speak badly of past jobs, bosses or companies. Never.</li>
+      <li>Salary: only after a signal of an offer. Ready exit: <button class="chip phrase say-en">Does that mean you're making me an offer?</button></li>
+      <li>Always have 3 questions prepared for the end. Leaving with none kills the role.</li>
+      <li>Twenty minutes of research before each interview: product, revenue model, news from the last 6 months, competitors, the interviewers' LinkedIn.</li>
+      <li>Spoken answers of 60 to 90 seconds. Past two minutes, you have lost the room.</li>
+      <li>End every answer on your strongest point, not on "so... yeah".</li>
     </ul>
   </div>
 </section>
 
-<footer>Feito para o treino do Antonio · Feedback e simulação usam IA e precisam de internet</footer>
+<footer>Built for Antonio's interview practice · works offline</footer>
 
 </div>
 <script>
-/* ===== Interview Room · dados ===== */
+/* ===== Interview Room · data ===== */
 
-const CV_SUMMARY = `Antonio Junior, Brazilian technology executive, 20+ years in technology. CURRENT: CTO (Technology & Product Director) at UPBET (Apr 2025 to now), an iGaming operator with a proprietary platform and a 24/7 real-money regulated operation. Joined a team of only developers and built the full technology and product organization: Engineering, SRE, Security, Data, Databases, QA, Product (PMs and POs) and help desk, about 30 people including managers and tech leads, plus vendor teams. Owns the OPEX/CAPEX budget and project portfolio, presents results and investments to shareholders and the CFO, negotiated vendor SLAs with loss-of-profit clauses. Built personas with the Product team and runs metrics-driven management (LTV, retention, conversion, engagement). Implemented a Lakehouse architecture. Cut infrastructure costs by 70%. Led two international certifications of the proprietary platform (English certification body, Brazilian SPA regulation, including pentests). Runs an AI First initiative: GitHub Copilot rollout with change management plus a corporate AI strategy with the Data team. Built the security strategy: WAF, SIEM, rate limiting, IAM, encryption, incident response, threat hunting, forensics. BEFORE: Infrastructure Manager at Bazk (Dec 2023 to Mar 2025), a Pix payments gateway connecting global companies to Brazilian consumers; built the 20-person infrastructure and technology area (SRE, Security, Databases, Data Analytics, Software Architecture, help desk) plus vendors; cut infrastructure costs by 50-60%; implemented Datadog observability with a payback case presented to shareholders; ITIL practices, blameless postmortems; structured Pix incident management (on-call rotation, severity levels). Technical Lead, Databases at Banco Inter (Sep 2021 to Dec 2023), a listed Brazilian digital bank with tens of millions of customers, regulated by the Central Bank; AWS, Kafka, EKS, Terraform; modernized log architecture with a 40% cost reduction; built a high-availability solution for the app login, presented as a case at AWS Summit Sao Paulo; PCI audits; worked on products like Shopping, Global Account and financing. Buscape (Sep 2015 to Sep 2021), Latin America price-comparison leader: Database Specialist promoted to Coordinator (2018); led the migration from a physical data center to AWS with availability close to 100% and negotiated AWS funding and credits; supported M&A tech integration of acquired companies and the technical due diligence in the sale of Buscape to Zoom; redesigned the central offers system ingesting 70M+ offers per day in near real time (catalogs of Amazon, B2W, Casas Bahia, Magazine Luiza); ran successive Black Fridays; implemented a Lakehouse with 30% cost reduction. EARLIER: database consultant at BFBiz (2012-2015, clients like Bridgestone, Fleury, Carglass, Unidas, Besni with a TOTVS ERP migration), IT analyst at Aduaneiras (2009-2012), Brazilian Air Force IT help desk (2005-2009). MBA: CTO & CIO Executive Program, FIAP, 2025. Based in Porto Alegre, weekly in Sao Paulo, open to relocation within Brazil. Career direction: CTO now, CPTO/CPO track ahead.`;
+const CV_SUMMARY = "Antonio Junior, Brazilian technology executive, 20+ years in technology. CURRENT: CTO (Technology & Product Director) at UPBET (Apr 2025 to now), an iGaming operator with a proprietary platform and a 24/7 real-money regulated operation. Joined a team of only developers and built the full technology and product organization: Engineering, SRE, Security, Data, Databases, QA, Product (PMs and POs) and help desk, about 30 people including managers and tech leads, plus vendor teams. Owns the OPEX/CAPEX budget and project portfolio, presents results and investments to shareholders and the CFO, negotiated vendor SLAs with loss-of-profit clauses. Built personas with the Product team and runs metrics-driven management (LTV, retention, conversion, engagement). Implemented a Lakehouse architecture. Cut infrastructure costs by 70%. Led two international certifications of the proprietary platform (English certification body, Brazilian SPA regulation, including pentests). Runs an AI First initiative: GitHub Copilot rollout with change management plus a corporate AI strategy with the Data team. Built the security strategy: WAF, SIEM, rate limiting, IAM, encryption, incident response, threat hunting, forensics. BEFORE: Infrastructure Manager at Bazk (Dec 2023 to Mar 2025), a Pix payments gateway connecting global companies to Brazilian consumers; built the 20-person infrastructure and technology area (SRE, Security, Databases, Data Analytics, Software Architecture, help desk) plus vendors; cut infrastructure costs by 50-60%; implemented Datadog observability with a payback case presented to shareholders; ITIL practices, blameless postmortems; structured Pix incident management (on-call rotation, severity levels). Technical Lead, Databases at Banco Inter (Sep 2021 to Dec 2023), a listed Brazilian digital bank with tens of millions of customers, regulated by the Central Bank; AWS, Kafka, EKS, Terraform; modernized log architecture with a 40% cost reduction; built a high-availability solution for the app login, presented as a case at AWS Summit Sao Paulo; PCI audits; worked on products like Shopping, Global Account and financing. Buscape (Sep 2015 to Sep 2021), Latin America price-comparison leader: Database Specialist promoted to Coordinator (2018); led the migration from a physical data center to AWS with availability close to 100% and negotiated AWS funding and credits; supported M&A tech integration of acquired companies and the technical due diligence in the sale of Buscape to Zoom; redesigned the central offers system ingesting 70M+ offers per day in near real time (catalogs of Amazon, B2W, Casas Bahia, Magazine Luiza); ran successive Black Fridays; implemented a Lakehouse with 30% cost reduction. EARLIER: database consultant at BFBiz (2012-2015, clients like Bridgestone, Fleury, Carglass, Unidas, Besni with a TOTVS ERP migration), IT analyst at Aduaneiras (2009-2012), Brazilian Air Force IT help desk (2005-2009). MBA: CTO & CIO Executive Program, FIAP, 2025. Based in Porto Alegre, weekly in Sao Paulo, open to relocation within Brazil. Career direction: CTO now, CPTO/CPO track ahead.";
 
 const CATS = [
-  { id: 'classicas', label: 'Clássicas' },
-  { id: 'lideranca', label: 'Liderança executiva' },
-  { id: 'comportamentais', label: 'Comportamentais (STAR)' },
-  { id: 'curveball', label: 'Curveballs' }
+  {
+    "id": "classicas",
+    "label": "Classics"
+  },
+  {
+    "id": "lideranca",
+    "label": "Executive leadership"
+  },
+  {
+    "id": "comportamentais",
+    "label": "Behavioral (STAR)"
+  },
+  {
+    "id": "curveball",
+    "label": "Curveballs"
+  }
 ];
 
-const NOTE_STAR = 'A resposta abaixo é um exemplo realista de estrutura: troque pelos SEUS fatos antes de decorar. História inventada desmonta no primeiro follow-up.';
-
 const QUESTIONS = [
-
-/* ================= CLÁSSICAS (dos seus prints) ================= */
-{
-id:'c1', cat:'classicas',
-q:'Tell me about yourself.',
-want:'Se você consegue se apresentar em 90 segundos com foco no que interessa para ESTA vaga.',
-tips:[
-'Estrutura Presente > Passado > Conexão: quem você é hoje, de onde veio, o que liga tudo.',
-'Selecione 3 ou 4 marcos, não a carreira inteira. Termine no seu diferencial.',
-'Ajuste a ênfase à vaga: para fintech, puxe Inter e Bazk; para produto, puxe UPBET.'
-],
-model:`I'm a technology executive with twenty years in the field. I started deep in infrastructure and databases, and grew into leadership roles in regulated, high-volume environments. Today I'm the CTO of UPBET, an iGaming operator with a proprietary platform and a twenty-four seven real-money operation. I joined a team of only developers and built the full technology and product organization: engineering, SRE, security, data, QA and product, around thirty people plus vendor teams. Before that, I led infrastructure at a Pix payments fintech, was a technical leader at Banco Inter, one of Brazil's largest digital banks, and spent six years at Buscapé, where I led the migration to AWS and the redesign of a system processing over seventy million offers a day. What connects it all: I turn technology into business results, with predictable costs and strong execution.`,
-phrases:[
-"The short version of my story is this.",
-"What connects it all is turning technology into business results.",
-"Today, as CTO of UPBET, I own technology and product end to end."
-],
-fu:[
-"Why did you move from a large bank to a startup?",
-"Which of those experiences is most relevant for this role?"
-]},
-
-{
-id:'c2', cat:'classicas',
-q:'Why do you want to work here?',
-want:'Se você pesquisou a empresa e tem motivação real, não desespero.',
-tips:[
-'Sempre positivo: fale da empresa, do momento dela e do encaixe com você.',
-'Regra dos três motivos: estágio da empresa, problema que ela resolve, pessoas ou cultura.',
-'Feche conectando sua experiência ao que a vaga precisa.'
-],
-note:'Preencha os pontos entre colchetes com a pesquisa da empresa real antes de cada entrevista.',
-model:`Three things drew me here. First, the stage: you're scaling, and that's where I do my best work. I've built two technology organizations from scratch in the last three years. Second, the problem space: [a high-volume, demanding product] is exactly the environment I come from, payments, digital banking and real-money gaming. And third, the people I've met in this process. The conversations have been direct and ambitious, and that says a lot about the culture. I'm confident that my experience scaling teams, controlling costs and connecting technology to revenue maps directly to what you need from this role.`,
-phrases:[
-"Three things drew me to this opportunity.",
-"The stage you're at is where I do my best work.",
-"This maps directly to what I've built before."
-],
-fu:[
-"What do you know about our main challenges?",
-"Why us and not a bigger company?"
-]},
-
-{
-id:'c3', cat:'classicas',
-q:"What's your greatest weakness?",
-want:'Autoconhecimento e maturidade, não a fraqueza em si.',
-tips:[
-'Fraqueza real, do passado, com sistema construído para controlá-la. Nada de falsa modéstia.',
-'Nunca cite fraqueza que mata a vaga (para CTO: visão de negócio, comunicação, gestão de pessoas).',
-'Feche mostrando como ela virou vantagem administrada.'
-],
-model:`Early in my leadership career, my weakness was going too deep into technical detail. I came up through databases and infrastructure, so my instinct was to solve problems myself. That doesn't scale. So I built a discipline around it: I hire strong managers and tech leads, define clear outcomes, and stay at the level of direction and unblocking. Today the weakness shows up in a healthier form: I ask very detailed questions. My teams know that when something is critical, I will want to understand it deeply. I've turned that into an advantage for risk management, but I keep watching the line between healthy depth and micromanagement.`,
-phrases:[
-"That doesn't scale, so I built a discipline around it.",
-"I keep watching the line between healthy depth and micromanagement."
-],
-fu:[
-"Can you give me a real example of when that weakness hurt you?",
-"How do your reports react when you go deep?"
-]},
-
-{
-id:'c4', cat:'classicas',
-q:'How do you handle stress and pressure?',
-want:'Como você se comporta quando as coisas dão errado.',
-tips:[
-'Responda com um exemplo real, não com adjetivos.',
-'Seu material: incidentes 24/7, Pix, Black Friday. Pressão é o seu ambiente natural, use isso.',
-'Mostre sistema (on-call, severidade, postmortem) e sangue frio pessoal.'
-],
-model:`I handle stress with structure. In my world, real-money platforms, payments, digital banking, stress usually arrives as an incident. So I remove improvisation before it happens: on-call rotations, severity levels, clear ownership, runbooks and blameless postmortems. When something breaks at two a.m., everyone knows their role, including me. A concrete example: at Bazk, a Pix payments processor, incident response used to be improvised. I rebuilt the whole process, and pressure situations became routine execution instead of chaos. On a personal level, I stay calm by focusing on the next decision, not on the noise. And I protect sleep and exercise, because a tired leader makes bad calls.`,
-phrases:[
-"I remove improvisation before it happens.",
-"Pressure with a clear plan is just work.",
-"I focus on the next decision, not on the noise."
-],
-fu:[
-"Tell me about the worst incident you've ever handled.",
-"What do you do when the team is burning out?"
-]},
-
-{
-id:'c5', cat:'classicas',
-q:'What is your greatest strength?',
-want:'Se a sua força é a que a vaga precisa, com prova.',
-tips:[
-'Hora de se vender sem soar arrogante: força + evidência com números.',
-'Escolha a força que conecta com a vaga, não a sua favorita.',
-'Uma força bem provada vale mais que três genéricas.'
-],
-model:`My greatest strength is turning technology into predictable business results. I'm comfortable across the whole range, from database internals to board presentations, so I translate between engineers and executives without losing anything in between. The evidence is consistent: I cut infrastructure costs by seventy percent at UPBET and by more than half at Bazk, while reliability went up, not down. I've built two complete technology organizations from near zero in three years, and took a regulated platform through two international certifications. If you hire me, you get someone who delivers the roadmap and defends the P&L at the same time.`,
-phrases:[
-"The evidence is consistent.",
-"From database internals to board presentations.",
-"I deliver the roadmap and defend the P&L at the same time."
-],
-fu:[
-"How would your team describe that strength?",
-"Give me one more example, from a different company."
-]},
-
-{
-id:'c6', cat:'classicas',
-q:'What did you like and dislike about your current job?',
-want:'Se você fala de empregos e chefes sem negatividade.',
-tips:[
-'Regra de ouro dos seus prints: nunca negativo. O "dislike" deve ser um fator que NÃO existe na nova vaga.',
-'Seu ângulo seguro: o setor iGaming, nunca a empresa ou as pessoas.',
-'Seja breve no negativo e volte rápido para o positivo.'
-],
-model:`What I like most at UPBET is ownership. I run technology and product end to end, I present directly to shareholders, and I see the impact of every decision on the business. That level of accountability made me a much stronger executive. If I name something on the other side, it's not about the company, it's about the sector. iGaming is a fantastic school of speed and resilience, but I want to build my long-term career in a sector where I see myself for the next decade. That's why I'm having this conversation, and it has nothing negative to do with where I am.`,
-phrases:[
-"It's not about the company, it's about the sector.",
-"That level of accountability made me a stronger executive."
-],
-fu:[
-"Would you consider another company in the same sector?",
-"What would make you stay where you are?"
-]},
-
-{
-id:'c7', cat:'classicas',
-q:'Why are you leaving your current job?',
-want:'Se existe algum risco escondido em contratar você.',
-tips:[
-'Nunca fale mal do empregador atual. Motivo sempre positivo e voltado ao futuro.',
-'Transições passadas, se perguntarem: Buscapé ao Inter foi busca de escala 20x em banco regulado; Inter à Bazk foi construir uma área do zero liderando gestores; Bazk à UPBET foi a cadeira de CTO com produto.',
-'Sobre iGaming, responda sem se desculpar: escola de velocidade, resiliência e regulação.'
-],
-note:'Preencha o colchete com o desafio real da vaga em questão.',
-model:`I'm not running away from anything. UPBET has been a great chapter: I built the technology and product organization from scratch and took a proprietary platform through two international certifications in a newly regulated market. What I'm looking for now is the next stage of scale, and a sector where I want to spend the next ten years. I'm being selective, and I'm exploring this from a position of strength, not necessity. This opportunity matches exactly the kind of challenge I want: [the real challenge of this role].`,
-phrases:[
-"I'm not running away from anything.",
-"From a position of strength, not necessity.",
-"I'm looking for the next stage of scale."
-],
-fu:[
-"Does your CEO know you're looking?",
-"How much notice would you need to give?"
-]},
-
-{
-id:'c8', cat:'classicas',
-q:'Where do you see yourself in three to five years?',
-want:'Ambição compatível com a empresa e desejo de ficar.',
-tips:[
-'Do seu material: "crescer e me desenvolver", de preferência DENTRO da empresa.',
-'Sua ambição real (CPTO/CPO) cabe aqui, desde que apresentada como crescimento na casa.',
-'Feche com o que importa: construir valor, não colecionar cargos.'
-],
-model:`I see myself as a technology and product executive with an even stronger business footprint, ideally having grown inside this company. My whole path points that way: from deep technical work to leading complete technology and product organizations. In three to five years I want to be accountable for a larger scope and P&L, leading through strong managers, and shaping strategy at the executive table. What matters most to me is building something with compounding value, not collecting titles.`,
-phrases:[
-"Ideally having grown inside this company.",
-"Accountable for a larger scope and P&L.",
-"Building compounding value, not collecting titles."
-],
-fu:[
-"What if that growth doesn't happen here as fast as you want?",
-"Technology or product: if you had to choose one?"
-]},
-
-{
-id:'c9', cat:'classicas',
-q:'What salary are you looking for?',
-want:'Ancorar a negociação o mais cedo possível.',
-tips:[
-'Regra dos seus prints: não fale de dinheiro antes de sinal de proposta. Devolva com elegância.',
-'Três saídas prontas: humor ("Does that mean you\'re making me an offer?"), interesse ("I\'d rather understand the scope first") e confiança ("I\'m sure you\'ll offer something commensurate").',
-'Se insistirem muito (comum no Brasil): dê uma faixa ancorada no topo e diga que o pacote total importa mais que o fixo.'
-],
-model:`I'm sure compensation won't be a problem if there's a strong fit. I'd rather understand the scope and the impact you expect first, and then talk numbers. If it helps to have a reference: my current package is competitive for a C-level seat in a regulated operation, and I'm open to a structure that makes sense for both sides, including variable and equity.`,
-phrases:[
-"Does that mean you're making me an offer?",
-"I'd rather understand the scope and the expected impact first.",
-"I'm open to a structure that makes sense for both sides."
-],
-fu:[
-"We really need a number to move forward. What's your range?",
-"Is equity important to you?"
-]},
-
-{
-id:'c10', cat:'classicas',
-q:'Why should we hire you?',
-want:'Convite aberto para se vender: aderência entre você e a vaga.',
-tips:[
-'Do seu material: momento de "dazzle", liste realizações relevantes sem pedir desculpas.',
-'Fórmula: o que a vaga precisa + prova de que você já fez + velocidade de entrega.',
-'Feche forte: "I start delivering in the first ninety days."'
-],
-model:`Because I've already done what you need done. You need someone to scale the platform, structure the team and bring predictability. I built two technology organizations from scratch in three years, took a regulated real-money platform through two international certifications, and cut infrastructure costs between fifty and seventy percent twice, with reliability going up. I operate from architecture reviews to board meetings, and I move fast: at UPBET, within months I had the org designed, a technology master plan and a security strategy in execution. You won't need to teach me how to lead in a demanding environment. I start delivering in the first ninety days.`,
-phrases:[
-"Because I've already done what you need done.",
-"You won't need to teach me how to lead in a demanding environment.",
-"I start delivering in the first ninety days."
-],
-fu:[
-"You've been a CTO for about a year. Why is that enough?",
-"What would you need from us to succeed?"
-]},
-
-{
-id:'c11', cat:'classicas',
-q:'What do you know about us?',
-want:'Se você se importou o bastante para pesquisar. Teste decisivo segundo seus prints.',
-tips:[
-'Checklist de 20 minutos antes de cada entrevista: produto, modelo de receita, notícias dos últimos 6 meses, concorrentes, LinkedIn dos entrevistadores.',
-'Estrutura: o que a empresa faz, como ganha dinheiro, movimento recente, sua leitura do desafio.',
-'Termine devolvendo uma pergunta: transforma teste em conversa.'
-],
-note:'Preencha os colchetes com a pesquisa da empresa real. A última frase transforma a resposta em diálogo.',
-model:`Let me share my read on your business. You're a [sector] company; your core product is [X], and you make money through [model]. Recently you [raised a round, launched Y or expanded to Z], and your main competitors are [A and B]. My impression is that your edge is [differentiator], and from the outside, the big technology challenge right now looks like [scale, reliability or speed], which is exactly the kind of problem I've solved before. How close is that to how you see it?`,
-phrases:[
-"Let me share my read on your business.",
-"How close is that to how you see it?"
-],
-fu:[
-"What would you change about our product?",
-"Who do you think is our biggest threat?"
-]},
-
-{
-id:'c12', cat:'classicas',
-q:'Do you have any questions for us?',
-want:'Interesse genuíno e o nível das suas perguntas. Pode fechar ou matar a vaga, segundo seus prints.',
-tips:[
-'Nunca diga "no, I think we covered everything". Tenha sempre 3 preparadas.',
-'Perguntas de executivo: sucesso no ano 1, maior risco tecnológico, como decisões são tomadas.',
-'Evite perguntar de férias, benefícios e home office na primeira conversa.'
-],
-model:`I do, three of them. First: what does success look like for this role at the end of year one, in your words? Second: what is the biggest technology risk to the business plan today? And third: how does the executive team decide when product and engineering disagree? I ask because that tells me how decisions really get made here.`,
-phrases:[
-"What does success look like at the end of year one?",
-"What's the biggest technology risk to the business plan?",
-"What made the last person in this seat succeed, or not?"
-],
-fu:[]},
-
-/* ================= LIDERANÇA EXECUTIVA ================= */
-{
-id:'l1', cat:'lideranca',
-q:'How do you build and scale a technology team?',
-want:'Se você tem método para estruturar times, não sorte.',
-tips:[
-'Use UPBET como caso completo: diagnóstico, desenho da organização, líderes primeiro, rituais.',
-'Princípio para fechar: structure follows strategy, leaders come before scale.',
-'Cite números: 30 pessoas, gerentes e tech leads, mais fornecedores.'
-],
-model:`I've done this twice in the last three years, so let me use UPBET as the example. I arrived to a team of only developers, no structure. First thirty days: I mapped the business priorities, the platform risks and the people, who could grow, what was missing. Then I designed the target organization around the operation's needs: engineering, SRE, security, data, QA and product. I hired managers and tech leads first, because leadership leverage comes before headcount. I set up the rituals: planning, incident management, postmortems, and a technology master plan connected to the business goals. Today it's around thirty people plus vendor teams, with clear ownership per area. The principle: structure follows strategy, and leaders come before scale.`,
-phrases:[
-"Leaders come before scale.",
-"Structure follows strategy.",
-"Clear ownership per area."
-],
-fu:[
-"How do you decide between hiring managers and senior engineers?",
-"What's your biggest hiring mistake?"
-]},
-
-{
-id:'l2', cat:'lideranca',
-q:'Describe your leadership style.',
-want:'Se o seu estilo funciona para o momento da empresa.',
-tips:[
-'Seja concreto: liderar por gestores, cultura blameless, dono do custo, transparência com números.',
-'Inclua como o time descreveria você: exigente em resultado, calmo sob pressão.',
-'Uma frase de assinatura ajuda a ser lembrado.'
-],
-model:`Direct, structured and built on ownership. I lead through managers and tech leads, I'm allergic to micromanagement, but I go deep when the risk is high. I run a blameless culture: incidents end in postmortems and better systems, not in blame. I push cost awareness down to the team, so everyone treats company money as their own, and I'm transparent with numbers, up and down. My teams would say I'm demanding on outcomes and calm under pressure. And I say hard things respectfully and early, because unspoken problems compound.`,
-phrases:[
-"Demanding on outcomes, calm under pressure.",
-"Unspoken problems compound.",
-"Everyone treats company money as their own."
-],
-fu:[
-"Give me an example of a hard decision that style produced.",
-"When does that style not work?"
-]},
-
-{
-id:'l3', cat:'lideranca',
-q:'How do you balance technical debt against new features?',
-want:'Maturidade de engenharia e visão de negócio juntas.',
-tips:[
-'Trate dívida como decisão financeira: deliberada e rastreada, com retorno esperado.',
-'Seus exemplos reais: desacoplar deploy de release com feature flags na Bazk e na UPBET.',
-'Mostre que dívida invisível é o perigo, não a dívida em si.'
-],
-model:`I treat technical debt as a financial decision, not a religious one. Debt is fine when it's deliberate and tracked; it's dangerous when it's invisible. In practice, I keep a visible register of the debt that actually threatens the business: reliability, security, cost and speed of delivery. Then I negotiate capacity for it in the roadmap like any other investment, with an expected return. Two examples: at Bazk and at UPBET I decoupled deploy from release with feature flags, which killed the weekly release window and cut delivery risk. That was paying debt with immediate business return: faster and safer releases.`,
-phrases:[
-"Technical debt is a financial decision, not a religious one.",
-"Deliberate and tracked debt is fine; invisible debt is dangerous."
-],
-fu:[
-"How much of your roadmap goes to debt today?",
-"Who decides when debt gets paid, you or the product team?"
-]},
-
-{
-id:'l4', cat:'lideranca',
-q:'How do you keep engineering aligned with the business?',
-want:'Se tecnologia é parceira do negócio ou um silo.',
-tips:[
-'Seu caso é forte: você é dono de tecnologia E produto, alinhamento estrutural.',
-'Cite os mecanismos: personas com produto, métricas de LTV e retenção, plano com marketing e comercial, resultados para acionistas.',
-'Feche com o efeito: quando o time entende o negócio, o conflito de prioridade quase some.'
-],
-model:`By making the business the source of truth for the roadmap. At UPBET I own product and technology, so alignment is structural: we build personas with the product team and manage by business metrics, LTV, retention, conversion. The technology master plan is written with marketing and commercial, not for them. Every quarter I present results and investments to shareholders and the CFO in business language: what we spent, what it returned, what comes next. And the engineers see the connection too: release notes, metrics on dashboards, postmortems tied to revenue impact. When the team understands the business, most prioritization conflicts simply disappear.`,
-phrases:[
-"The business is the source of truth for the roadmap.",
-"In business language: what we spent, what it returned, what comes next."
-],
-fu:[
-"Tell me about a time engineering and business goals clashed.",
-"How do engineers react to being measured on business metrics?"
-]},
-
-{
-id:'l5', cat:'lideranca',
-q:'Which KPIs do you use to run engineering?',
-want:'Se você gerencia por dados ou por sensação.',
-tips:[
-'Quatro famílias: entrega, confiabilidade, eficiência de custo, resultado de produto.',
-'Amarre cada família a um fato seu: deploy contínuo com flags, postmortems, FinOps com 70% de redução, LTV e retenção.',
-'Feche com a filosofia: poucos KPIs visíveis valem mais que muitos ignorados.'
-],
-model:`Four families. Delivery: lead time and deployment frequency; we deploy continuously behind feature flags. Reliability: availability, incidents by severity and time to recover, reviewed in blameless postmortems. Efficiency: infrastructure cost as a percentage of revenue, with real FinOps discipline; that's how I cut costs seventy percent at UPBET without hurting reliability. And product outcomes: LTV, retention and conversion, because a shipped feature that doesn't move a metric is just cost. I keep the list short and visible. Ten KPIs nobody looks at are worse than four everyone knows.`,
-phrases:[
-"Ten KPIs nobody looks at are worse than four everyone knows.",
-"A shipped feature that doesn't move a metric is just cost."
-],
-fu:[
-"What's your current availability number?",
-"Which KPI would you drop if you had to?"
-]},
-
-{
-id:'l6', cat:'lideranca',
-q:'How do you decide between build and buy?',
-want:'Critério econômico nas decisões de arquitetura.',
-tips:[
-'Regra clara: construa o que diferencia, compre o que não diferencia.',
-'Seus dois lados reais: plataforma proprietária na UPBET (build) e Datadog na Bazk com payback para acionistas (buy).',
-'Mostre disciplina no buy: SLA com cláusula de lucro cessante.'
-],
-model:`My rule: build what differentiates you, buy what doesn't. At UPBET the platform is proprietary because the platform is the business; that's where engineering time goes. Observability is not our differentiator, so at Bazk I bought Datadog, and I presented the payback case to shareholders before signing. I also negotiate hard on the buy side: SLA contracts with loss-of-profit clauses, because a vendor failure in a real-money operation is my failure. And I revisit the decision over time: a build that made sense at one scale can become a buy later, and the other way around.`,
-phrases:[
-"Build what differentiates you, buy what doesn't.",
-"A vendor failure in a real-money operation is my failure."
-],
-fu:[
-"Tell me about a build decision you regret.",
-"How do you avoid vendor lock-in?"
-]},
-
-{
-id:'l7', cat:'lideranca',
-q:'How are you thinking about AI in your organization?',
-want:'Se você tem estratégia de IA real ou só discurso. Pergunta quase garantida em 2026.',
-tips:[
-'Seu caso concreto: iniciativa AI First, Copilot com gestão de mudança, estratégia corporativa com o time de dados sobre Lakehouse.',
-'Posição executiva: o risco não é adotar, é adotar sem governança.',
-'Evite hype: fale de medição, dados confiáveis e disciplina de revisão.'
-],
-model:`I run an initiative called AI First. At UPBET we adopted GitHub Copilot and complementary tools across development, and I treated it as change management, not tool installation: training, usage guidelines, and measuring where it actually helps. Beyond engineering, I'm building the corporate AI strategy together with the data team, on top of a Lakehouse architecture, so the models work with reliable data. My view is simple: AI raises the bar for everyone, and the real risk is not adopting it, it's adopting it without governance. Code review discipline, security and data quality matter more than ever.`,
-phrases:[
-"The risk is not adopting AI, it's adopting it without governance.",
-"Change management, not tool installation."
-],
-fu:[
-"What measurable gains has Copilot produced?",
-"Where would you NOT use AI today?"
-]},
-
-{
-id:'l8', cat:'lideranca',
-q:'How do you handle conflict between product and engineering?',
-want:'Como você arbitra conflitos entre áreas.',
-tips:[
-'Diagnóstico maduro: a causa é falta de contexto compartilhado, não má intenção.',
-'Mecanismos: um roadmap só, métricas de negócio comuns, trade-offs explícitos.',
-'Postura: decidir rápido no impasse e explicar o porquê.'
-],
-model:`At UPBET I own both sides, and that taught me the real cause of this conflict: missing shared context, not bad intentions. Product pushes scope because they see the market; engineering pushes back because they see the risk. My approach: one roadmap, one set of business metrics, and explicit trade-off conversations, what we gain, what we risk, what we drop. When there's an impasse, I decide fast and explain why, because slow decisions damage both sides more than wrong ones. And postmortems apply to product bets too: if a feature doesn't move LTV or retention, we say it out loud and learn from it.`,
-phrases:[
-"Missing shared context, not bad intentions.",
-"Slow decisions damage both sides more than wrong ones."
-],
-fu:[
-"Who has the final word on scope in your team?",
-"Give me a real trade-off conversation you led."
-]},
-
-{
-id:'l9', cat:'lideranca',
-q:'What would your first ninety days here look like?',
-want:'Se você tem um plano e sabe ganhar credibilidade rápido.',
-tips:[
-'Estrutura 30/60/90: ouvir e mapear; diagnóstico e plano com quick wins; execução com scorecard.',
-'Prometa credibilidade cedo: confiabilidade ou custo costumam ser as vitórias rápidas.',
-'Diga também o que NÃO fará: mexer no organograma na primeira semana.'
-],
-model:`Listen first, then structure, then quick wins. In the first thirty days I focus on understanding: the business model, the team, the key stakeholders, the platform risks and the numbers. I don't touch the org chart in week one. From thirty to sixty, I deliver a diagnosis with a clear plan: the target organization, the priorities, and two or three quick wins that build credibility, usually in reliability or cost. From sixty to ninety, the plan is in execution, the right leaders are in place, and there's a scorecard the CEO and I review together. I've run this playbook at UPBET and at Bazk: ninety days is enough to have direction, momentum and trust.`,
-phrases:[
-"Listen first, then structure, then quick wins.",
-"Direction, momentum and trust.",
-"I don't touch the org chart in week one."
-],
-fu:[
-"What would you NOT do in the first ninety days?",
-"What's the fastest quick win you've ever delivered?"
-]},
-
-{
-id:'l10', cat:'lideranca',
-q:'How do you manage a technology budget?',
-want:'Se você fala a língua do CFO.',
-tips:[
-'Cubra o ciclo: planejamento a partir do roadmap, execução com FinOps, fornecedores com SLA, prestação de contas.',
-'Despeje os números: 70% na UPBET, 50 a 60% na Bazk, 40% em logs no Inter, sempre com confiabilidade subindo.',
-'Frase forte: cada custo relevante tem um dono e um porquê.'
-],
-model:`I run OPEX and CAPEX with the same discipline a CFO would expect. Planning: the budget is built from the roadmap and the operation, not last year plus ten percent. Execution: a FinOps culture where every significant cost has an owner and a why, and the team treats company money as their own. Vendors: hard negotiation and contracts with SLAs, including loss-of-profit clauses for critical services. And accountability: I present spend and return to shareholders and the CFO. The results are consistent: seventy percent infrastructure cost reduction at UPBET, more than half at Bazk, forty percent in log costs at Inter, all with reliability going up, not down.`,
-phrases:[
-"Every significant cost has an owner and a why.",
-"Not last year plus ten percent.",
-"With reliability going up, not down."
-],
-fu:[
-"What's your infrastructure cost as a share of revenue?",
-"Where would you cut first in a downturn?"
-]},
-
-{
-id:'l11', cat:'lideranca',
-q:'Tell me about your M&A experience.',
-want:'Experiência rara que diferencia executivos de tecnologia.',
-tips:[
-'Você viveu os dois lados no Buscapé: integração de adquiridas e due diligence na venda para o Zoom.',
-'Bônus: a Bazk nasceu da fusão de duas empresas de pagamento.',
-'Tese para fechar: valor de M&A se captura ou se destrói na integração.'
-],
-model:`At Buscapé I worked both sides of M&A. On acquisitions, I supported the technical integration of acquired companies: consolidating cloud accounts, standardizing the database layer, keeping the operation stable while systems merged. On the sell side, I supported the technical due diligence when Buscapé was sold to Zoom, presenting the environment, the risks and the costs to the buyer. And at Bazk, the company itself was born from the merger of two payment companies, so I've operated inside a post-merger organization too. What I learned: the value of a deal is captured or destroyed in the integration, and clean, well-documented technology is worth real money in a transaction.`,
-phrases:[
-"Value is captured or destroyed in the integration.",
-"Clean, well-documented technology is worth real money."
-],
-fu:[
-"What breaks most tech integrations, in your experience?",
-"How would you prepare a company to be acquired?"
-]},
-
-/* ================= COMPORTAMENTAIS (STAR) ================= */
-{
-id:'b1', cat:'comportamentais',
-q:'Tell me about a time you disagreed with your CEO or a senior executive.',
-want:'Coragem de discordar e maturidade para se comprometer com a decisão final.',
-tips:[
-'Estrutura STAR com final maduro: discorde com dados, em privado; comprometa-se em público.',
-'Escolha um caso em que você tinha razão E preservou a relação.',
-'Nunca faça o outro executivo parecer idiota.'
-],
-note:NOTE_STAR,
-model:`Early at UPBET, the pressure was to ship features fast. I believed we first needed managers, incident management and a security baseline, because a real-money platform cannot afford instability. Instead of opinions, I brought data: our incident history, the risk exposure, and what failing an international certification would cost the business. We agreed on a plan that protected feature delivery while I built the foundation in parallel. Months later we passed the certification, and the platform became faster and cheaper to run. What I took from it: disagree with data, in private, and commit in public. That's how I handle every disagreement with the CEO.`,
-phrases:[
-"I brought data instead of opinions.",
-"Disagree with data, in private; commit in public."
-],
-fu:[
-"What would you have done if the CEO had said no?",
-"Have you ever been wrong in one of those disagreements?"
-]},
-
-{
-id:'b2', cat:'comportamentais',
-q:'Tell me about your biggest failure.',
-want:'Honestidade, accountability e aprendizado real.',
-tips:[
-'Falha real, com custo real, e você no centro dela. "Sou perfeccionista demais" não é falha.',
-'Metade da resposta é o sistema que você criou para nunca repetir.',
-'Feche mostrando o sistema em uso hoje.'
-],
-note:NOTE_STAR,
-model:`Early in my leadership career, I kept a senior underperformer on the team for too long. I kept coaching, the results didn't come, and the team noticed the problem before I acted. The cost was real: credibility with the team and months of lost energy. I own that one completely. Since then I follow a simple rule: clear expectations, a defined improvement window with real support, and a decision at the end, every time. I've applied it in every team since, and it's one of the reasons my organizations move fast: people trust that performance actually matters.`,
-phrases:[
-"I own that one completely.",
-"Since then I follow a simple rule.",
-"People trust that performance actually matters."
-],
-fu:[
-"What did that failure cost the company?",
-"How do you catch that situation earlier today?"
-]},
-
-{
-id:'b3', cat:'comportamentais',
-q:'Tell me about a time you delivered under serious pressure.',
-want:'Execução sob pressão com método, não com heroísmo.',
-tips:[
-'Seu melhor caso real: certificação internacional da UPBET com prazo ligado à licença.',
-'Mostre método: workstreams, donos, checkpoints executivos.',
-'Alternativas: Black Fridays no Buscapé, incidentes Pix na Bazk.'
-],
-model:`The best example is the certification of our platform at UPBET. A regulated real-money operation, an English certification body, hard requirements including penetration tests, and a fixed deadline tied to our license under the new Brazilian regulation. I broke the program into workstreams: security, platform changes, documentation and evidence. Each one had an owner, and I ran weekly executive checkpoints. We passed on schedule, and we've now passed twice. My conclusion after twenty years: pressure with a clear plan is just work; pressure without one is chaos. My job is making sure it's always the first kind.`,
-phrases:[
-"A fixed deadline tied to our license.",
-"I broke the program into workstreams with clear owners.",
-"Pressure with a clear plan is just work."
-],
-fu:[
-"What would you do differently in that project today?",
-"How did you keep the team from burning out?"
-]},
-
-{
-id:'b4', cat:'comportamentais',
-q:'Tell me about a time you influenced without authority.',
-want:'Liderança além do organograma.',
-tips:[
-'Caso real forte: migração do Buscapé para a AWS, alinhando áreas que não reportavam a você.',
-'O golpe de mestre: negociar funding e créditos com a própria AWS, removendo a objeção de custo.',
-'Tese: influência vem de preparação e de reduzir o problema dos outros.'
-],
-model:`At Buscapé I led databases, not the company, but I drove a company-wide move: the migration from our physical data center to AWS. I had to align marketing, development, SRE, security and the business side, and none of them reported to me. So I built the case in each area's language: availability for the business, predictability for finance, less operational pain for engineering. And I removed the biggest objection myself: I negotiated directly with AWS for funding and credits, because they wanted our technology on their cloud. The migration happened with availability close to one hundred percent. Influence came from preparation and from making everyone's problem smaller, not from the org chart.`,
-phrases:[
-"I built the case in each area's language.",
-"Influence came from preparation, not from the org chart."
-],
-fu:[
-"How did you get finance on board?",
-"What was the hardest area to convince?"
-]},
-
-{
-id:'b5', cat:'comportamentais',
-q:'Tell me about a time you had to deliver bad news to leadership.',
-want:'Transparência e coragem com quem está acima de você.',
-tips:[
-'Sua regra: bad news travels fast, with a plan attached.',
-'Formato executivo: o que houve, impacto, o que fizemos, o que muda.',
-'Sem minimizar e sem culpados. Credibilidade se constrói exatamente aí.'
-],
-note:NOTE_STAR,
-model:`I present results to shareholders and the CFO, so delivering bad news is part of my job. My rule: bad news travels fast, with a plan attached. A concrete case: a serious incident in a payments operation. Within hours, leadership had a clear message from me: what happened, the customer impact, what we had already done, and what would change so it wouldn't repeat. No minimizing, no hunting for someone to blame. The postmortem became process improvements, and the next conversation with the board was easier, not harder. If you only show up with good news, nobody trusts your numbers. I'd rather be the executive whose numbers are always trusted.`,
-phrases:[
-"Bad news travels fast, with a plan attached.",
-"No minimizing, no hunting for someone to blame.",
-"If you only bring good news, nobody trusts your numbers."
-],
-fu:[
-"How did the shareholders react?",
-"Have you ever delayed bad news? What happened?"
-]},
-
-{
-id:'b6', cat:'comportamentais',
-q:'How do you deal with underperformers?',
-want:'Se você é justo e rápido com pessoas ao mesmo tempo.',
-tips:[
-'Processo em quatro passos: expectativa clara, conversa direta, janela com apoio, decisão.',
-'O dano maior não é o underperformer: é o que o resto do time conclui se nada acontece.',
-'Frase de fechamento: being fair and being slow are not the same thing.'
-],
-model:`Directly, and with a process. First I make sure the problem is real and visible: clear expectations and measurable outcomes, so it's not about opinions. Then a direct conversation, because most people don't hear the truth early enough. Then a defined improvement window with real support from me and the manager. And at the end, a decision: improvement, a different seat, or a respectful exit. I learned the hard way that the biggest damage is not the underperformer, it's what the rest of the team concludes if nothing happens. Being fair and being slow are not the same thing.`,
-phrases:[
-"Being fair and being slow are not the same thing.",
-"Clear expectations, a real window, a decision at the end."
-],
-fu:[
-"How long is that improvement window for you?",
-"Tell me about someone who turned it around."
-]},
-
-/* ================= CURVEBALLS ================= */
-{
-id:'x1', cat:'curveball',
-q:'Sell me your current product in one minute.',
-want:'Comunicação persuasiva e paixão pelo que você constrói.',
-tips:[
-'Estrutura de pitch: o problema invisível, como o produto resolve, prova, por que isso importa para o negócio.',
-'Fale devagar e com convicção. Um minuto é mais longo do que parece.',
-'Treine com timer: essa pergunta pega quase todo mundo.'
-],
-model:`Take our platform at UPBET. Real-money entertainment demands three things the user never sees: the money is always right, the product is always up, and every rule of the regulator is enforced in software. Our proprietary platform delivers exactly that, twenty-four seven, and it has been certified twice by an international body. For the business, proprietary means speed: we ship what the market needs in days, on our own roadmap, not a vendor's. So that's the product in one line: trust, uptime, and speed of evolution. That combination is why the operation can grow without fear.`,
-phrases:[
-"Three things the user never sees.",
-"Trust, uptime, and speed of evolution."
-],
-fu:[
-"Now sell me the biggest weakness of that product.",
-"Who is your product losing to, and why?"
-]},
-
-{
-id:'x2', cat:'curveball',
-q:"What's an unpopular opinion you hold about technology?",
-want:'Pensamento próprio e capacidade de defender uma posição.',
-tips:[
-'Tenha UMA opinião ensaiada, com evidência da sua carreira.',
-'A sua é honesta e diferenciadora: o problema é dono e decisão, não ferramenta.',
-'Esteja pronto para o follow-up clássico: defenda o lado oposto.'
-],
-model:`That most companies don't have a technology problem; they have a decision problem. I've cut infrastructure costs in half or more three times in my career, and in every single case the waste came from decisions nobody owned: services running because no one asked why, architectures nobody revisited, contracts renewed on autopilot. The tools were never the bottleneck; ownership was. So I'm skeptical of silver-bullet adoption, microservices, AI, whatever the current wave is, without an owner and a number attached. It's unpopular because it's less exciting than new technology. It's also what actually works.`,
-phrases:[
-"Tools were never the bottleneck; ownership was.",
-"Without an owner and a number attached."
-],
-fu:[
-"Defend the opposite view for a minute.",
-"How does that opinion change how you hire?"
-]},
-
-{
-id:'x3', cat:'curveball',
-q:'If we called your current CEO, what would they say about you?',
-want:'Autopercepção e consistência da sua narrativa.',
-tips:[
-'Três qualidades com lastro + um "criticismo" que na verdade é padrão alto.',
-'Tem que ser algo que o CEO confirmaria de verdade: coerência é o teste.',
-'Sorria ao responder: a pergunta também mede desconforto.'
-],
-model:`That I deliver what I commit to, that I tell the truth even when it's uncomfortable, and that the technology bill went down while the platform got better. Probably also that I ask a lot of questions about money, because I made cost awareness part of the engineering culture. And if they were being critical, they'd say I set a very high bar and I push hard on accountability. I'd accept that one without arguing.`,
-phrases:[
-"That I deliver what I commit to.",
-"I'd accept that one without arguing."
-],
-fu:[
-"And what would they honestly criticize?",
-"Would they be surprised you're interviewing?"
-]},
-
-{
-id:'x4', cat:'curveball',
-q:'Why hire an external CTO instead of promoting internally?',
-want:'Se você justifica seu valor sem atacar o time interno.',
-tips:[
-'Comece concordando: só faz sentido se o externo traz o que a casa não tem.',
-'Seu diferencial: pattern recognition de quem já montou duas organizações e passou por certificações.',
-'Feche elegante: o melhor cenário é o externo desenvolvendo os líderes internos.'
-],
-model:`Honestly, you shouldn't, unless the external person brings something the inside doesn't have yet. In my case, that's pattern recognition: I've built two technology organizations from scratch, operated in three regulated environments, and taken platforms through international certification. If your challenge is scaling structure, predictability and cost discipline fast, I've already made those mistakes and learned from them on someone else's clock. And the best setup is usually both: an external executive who develops the internal talent into the next generation of leaders. That's exactly how I work; my managers and tech leads grow, and that's part of my job description as I see it.`,
-phrases:[
-"Unless the external person brings something the inside doesn't have.",
-"I've made the mistakes and learned from them on someone else's clock."
-],
-fu:[
-"What will you do in the first month to win over the internal team?",
-"What if a strong internal candidate resents you?"
-]},
-
-{
-id:'x5', cat:'curveball',
-q:"What do you do when you don't know the answer?",
-want:'Honestidade intelectual sob pressão.',
-tips:[
-'Use a estrutura na própria entrevista se precisar: o que sei, o que não sei, quando volto, minha hipótese.',
-'Resposta inventada custa tudo; "I don\'t know yet, here\'s my plan" constrói confiança.',
-'Dê um exemplo de decisão tomada com informação incompleta.'
-],
-model:`I say so, and then I say how I'll find out. In boardrooms and in interviews, invented answers eventually get exposed, and they cost you everything. My format is simple: here's what I know, here's what I don't, here's when I'll come back with the answer, and here's my current hypothesis if the decision can't wait. Twenty years in technology taught me that "I don't know yet, and here's my plan" builds far more trust than a confident guess. My teams work the same way, and it shows in our postmortems: facts first, conclusions after.`,
-phrases:[
-"Here's what I know, here's what I don't, and here's my plan.",
-"Facts first, conclusions after."
-],
-fu:[
-"So tell me something in your own area you don't know today.",
-"When has a hypothesis of yours been wrong?"
-]}
-
+  {
+    "id": "c1",
+    "cat": "classicas",
+    "q": "Tell me about yourself.",
+    "want": "Whether you can introduce yourself in 90 seconds, focused on what matters for THIS role.",
+    "tips": [
+      "Structure it Present > Past > Connection: who you are today, where you came from, what ties it together.",
+      "Pick 3 or 4 milestones, not your whole career. End on your differentiator.",
+      "Adjust the emphasis to the role: for fintech, lead with Inter and Bazk; for product, lead with UPBET."
+    ],
+    "model": "I'm a technology executive with twenty years in the field. I started deep in infrastructure and databases, and grew into leadership roles in regulated, high-volume environments. Today I'm the CTO of UPBET, an iGaming operator with a proprietary platform and a twenty-four seven real-money operation. I joined a team of only developers and built the full technology and product organization: engineering, SRE, security, data, QA and product, around thirty people plus vendor teams. Before that, I led infrastructure at a Pix payments fintech, was a technical leader at Banco Inter, one of Brazil's largest digital banks, and spent six years at Buscapé, where I led the migration to AWS and the redesign of a system processing over seventy million offers a day. What connects it all: I turn technology into business results, with predictable costs and strong execution.",
+    "phrases": [
+      "The short version of my story is this.",
+      "What connects it all is turning technology into business results.",
+      "Today, as CTO of UPBET, I own technology and product end to end."
+    ],
+    "fu": [
+      "Why did you move from a large bank to a startup?",
+      "Which of those experiences is most relevant for this role?"
+    ]
+  },
+  {
+    "id": "c2",
+    "cat": "classicas",
+    "q": "Why do you want to work here?",
+    "want": "Whether you researched the company and have real motivation, not desperation.",
+    "tips": [
+      "Always positive: talk about the company, its current stage and the fit with you.",
+      "Rule of three reasons: company stage, problem they solve, people or culture.",
+      "Close by connecting your experience to what the role needs."
+    ],
+    "note": "Fill the bracketed parts with your research on the actual company before each interview.",
+    "model": "Three things drew me here. First, the stage: you're scaling, and that's where I do my best work. I've built two technology organizations from scratch in the last three years. Second, the problem space: [a high-volume, demanding product] is exactly the environment I come from, payments, digital banking and real-money gaming. And third, the people I've met in this process. The conversations have been direct and ambitious, and that says a lot about the culture. I'm confident that my experience scaling teams, controlling costs and connecting technology to revenue maps directly to what you need from this role.",
+    "phrases": [
+      "Three things drew me to this opportunity.",
+      "The stage you're at is where I do my best work.",
+      "This maps directly to what I've built before."
+    ],
+    "fu": [
+      "What do you know about our main challenges?",
+      "Why us and not a bigger company?"
+    ]
+  },
+  {
+    "id": "c3",
+    "cat": "classicas",
+    "q": "What's your greatest weakness?",
+    "want": "Self-awareness and maturity, not the weakness itself.",
+    "tips": [
+      "A real weakness, from the past, with a system you built to control it. No false modesty.",
+      "Never name a weakness that kills the role (for a CTO: business sense, communication, people management).",
+      "Close by showing how it became a managed advantage."
+    ],
+    "model": "Early in my leadership career, my weakness was going too deep into technical detail. I came up through databases and infrastructure, so my instinct was to solve problems myself. That doesn't scale. So I built a discipline around it: I hire strong managers and tech leads, define clear outcomes, and stay at the level of direction and unblocking. Today the weakness shows up in a healthier form: I ask very detailed questions. My teams know that when something is critical, I will want to understand it deeply. I've turned that into an advantage for risk management, but I keep watching the line between healthy depth and micromanagement.",
+    "phrases": [
+      "That doesn't scale, so I built a discipline around it.",
+      "I keep watching the line between healthy depth and micromanagement."
+    ],
+    "fu": [
+      "Can you give me a real example of when that weakness hurt you?",
+      "How do your reports react when you go deep?"
+    ]
+  },
+  {
+    "id": "c4",
+    "cat": "classicas",
+    "q": "How do you handle stress and pressure?",
+    "want": "How you behave when things go wrong.",
+    "tips": [
+      "Answer with a real example, not adjectives.",
+      "Your material: 24/7 incidents, Pix, Black Friday. Pressure is your natural habitat, use it.",
+      "Show the system (on-call, severity, postmortems) and your personal composure."
+    ],
+    "model": "I handle stress with structure. In my world, real-money platforms, payments, digital banking, stress usually arrives as an incident. So I remove improvisation before it happens: on-call rotations, severity levels, clear ownership, runbooks and blameless postmortems. When something breaks at two a.m., everyone knows their role, including me. A concrete example: at Bazk, a Pix payments processor, incident response used to be improvised. I rebuilt the whole process, and pressure situations became routine execution instead of chaos. On a personal level, I stay calm by focusing on the next decision, not on the noise. And I protect sleep and exercise, because a tired leader makes bad calls.",
+    "phrases": [
+      "I remove improvisation before it happens.",
+      "Pressure with a clear plan is just work.",
+      "I focus on the next decision, not on the noise."
+    ],
+    "fu": [
+      "Tell me about the worst incident you've ever handled.",
+      "What do you do when the team is burning out?"
+    ]
+  },
+  {
+    "id": "c5",
+    "cat": "classicas",
+    "q": "What is your greatest strength?",
+    "want": "Whether your strength is the one the role needs, with proof.",
+    "tips": [
+      "Time to sell yourself without arrogance: strength plus evidence with numbers.",
+      "Pick the strength that connects to the role, not your favorite one.",
+      "One well-proven strength beats three generic ones."
+    ],
+    "model": "My greatest strength is turning technology into predictable business results. I'm comfortable across the whole range, from database internals to board presentations, so I translate between engineers and executives without losing anything in between. The evidence is consistent: I cut infrastructure costs by seventy percent at UPBET and by more than half at Bazk, while reliability went up, not down. I've built two complete technology organizations from near zero in three years, and took a regulated platform through two international certifications. If you hire me, you get someone who delivers the roadmap and defends the P&L at the same time.",
+    "phrases": [
+      "The evidence is consistent.",
+      "From database internals to board presentations.",
+      "I deliver the roadmap and defend the P&L at the same time."
+    ],
+    "fu": [
+      "How would your team describe that strength?",
+      "Give me one more example, from a different company."
+    ]
+  },
+  {
+    "id": "c6",
+    "cat": "classicas",
+    "q": "What did you like and dislike about your current job?",
+    "want": "Whether you can discuss jobs and bosses without negativity.",
+    "tips": [
+      "Golden rule from your material: never negative. The dislike must be a factor that does NOT exist in the new role.",
+      "Your safe angle: the iGaming sector, never the company or the people.",
+      "Be brief on the negative and return quickly to the positive."
+    ],
+    "model": "What I like most at UPBET is ownership. I run technology and product end to end, I present directly to shareholders, and I see the impact of every decision on the business. That level of accountability made me a much stronger executive. If I name something on the other side, it's not about the company, it's about the sector. iGaming is a fantastic school of speed and resilience, but I want to build my long-term career in a sector where I see myself for the next decade. That's why I'm having this conversation, and it has nothing negative to do with where I am.",
+    "phrases": [
+      "It's not about the company, it's about the sector.",
+      "That level of accountability made me a stronger executive."
+    ],
+    "fu": [
+      "Would you consider another company in the same sector?",
+      "What would make you stay where you are?"
+    ]
+  },
+  {
+    "id": "c7",
+    "cat": "classicas",
+    "q": "Why are you leaving your current job?",
+    "want": "Whether there is any hidden risk in hiring you.",
+    "tips": [
+      "Never speak badly of your current employer. Always a positive, forward-looking reason.",
+      "On past moves, if asked: Buscape to Inter was 20x scale in a regulated bank; Inter to Bazk was building an area from scratch leading managers; Bazk to UPBET was the CTO seat including product.",
+      "On iGaming, answer without apologizing: a school of speed, resilience and regulation."
+    ],
+    "note": "Fill the bracket with the real challenge of the role you are interviewing for.",
+    "model": "I'm not running away from anything. UPBET has been a great chapter: I built the technology and product organization from scratch and took a proprietary platform through two international certifications in a newly regulated market. What I'm looking for now is the next stage of scale, and a sector where I want to spend the next ten years. I'm being selective, and I'm exploring this from a position of strength, not necessity. This opportunity matches exactly the kind of challenge I want: [the real challenge of this role].",
+    "phrases": [
+      "I'm not running away from anything.",
+      "From a position of strength, not necessity.",
+      "I'm looking for the next stage of scale."
+    ],
+    "fu": [
+      "Does your CEO know you're looking?",
+      "How much notice would you need to give?"
+    ]
+  },
+  {
+    "id": "c8",
+    "cat": "classicas",
+    "q": "Where do you see yourself in three to five years?",
+    "want": "Ambition that fits the company, plus a desire to stay.",
+    "tips": [
+      "From your material: grow and develop, preferably INSIDE the company.",
+      "Your real ambition (CPTO/CPO) fits here, as long as you frame it as growth in house.",
+      "Close with what matters: building value, not collecting titles."
+    ],
+    "model": "I see myself as a technology and product executive with an even stronger business footprint, ideally having grown inside this company. My whole path points that way: from deep technical work to leading complete technology and product organizations. In three to five years I want to be accountable for a larger scope and P&L, leading through strong managers, and shaping strategy at the executive table. What matters most to me is building something with compounding value, not collecting titles.",
+    "phrases": [
+      "Ideally having grown inside this company.",
+      "Accountable for a larger scope and P&L.",
+      "Building compounding value, not collecting titles."
+    ],
+    "fu": [
+      "What if that growth doesn't happen here as fast as you want?",
+      "Technology or product: if you had to choose one?"
+    ]
+  },
+  {
+    "id": "c9",
+    "cat": "classicas",
+    "q": "What salary are you looking for?",
+    "want": "Anchoring the negotiation as early as possible.",
+    "tips": [
+      "Rule from your material: no money talk before a signal of an offer. Deflect with elegance.",
+      "Three ready exits: humor (Does that mean you're making me an offer?), interest (I'd rather understand the scope first) and confidence (I'm sure you'll offer something commensurate).",
+      "If they insist hard (common in Brazil): give a range anchored at the top and say total package matters more than base."
+    ],
+    "model": "I'm sure compensation won't be a problem if there's a strong fit. I'd rather understand the scope and the impact you expect first, and then talk numbers. If it helps to have a reference: my current package is competitive for a C-level seat in a regulated operation, and I'm open to a structure that makes sense for both sides, including variable and equity.",
+    "phrases": [
+      "Does that mean you're making me an offer?",
+      "I'd rather understand the scope and the expected impact first.",
+      "I'm open to a structure that makes sense for both sides."
+    ],
+    "fu": [
+      "We really need a number to move forward. What's your range?",
+      "Is equity important to you?"
+    ]
+  },
+  {
+    "id": "c10",
+    "cat": "classicas",
+    "q": "Why should we hire you?",
+    "want": "An open invitation to sell yourself: the fit between you and the role.",
+    "tips": [
+      "From your material: this is the moment to dazzle, list relevant achievements without apologizing.",
+      "Formula: what the role needs + proof you have done it + speed of delivery.",
+      "Close strong: I start delivering in the first ninety days."
+    ],
+    "model": "Because I've already done what you need done. You need someone to scale the platform, structure the team and bring predictability. I built two technology organizations from scratch in three years, took a regulated real-money platform through two international certifications, and cut infrastructure costs between fifty and seventy percent twice, with reliability going up. I operate from architecture reviews to board meetings, and I move fast: at UPBET, within months I had the org designed, a technology master plan and a security strategy in execution. You won't need to teach me how to lead in a demanding environment. I start delivering in the first ninety days.",
+    "phrases": [
+      "Because I've already done what you need done.",
+      "You won't need to teach me how to lead in a demanding environment.",
+      "I start delivering in the first ninety days."
+    ],
+    "fu": [
+      "You've been a CTO for about a year. Why is that enough?",
+      "What would you need from us to succeed?"
+    ]
+  },
+  {
+    "id": "c11",
+    "cat": "classicas",
+    "q": "What do you know about us?",
+    "want": "Whether you cared enough to research. A decisive test, per your material.",
+    "tips": [
+      "A 20-minute checklist before each interview: product, revenue model, news from the last 6 months, competitors, the interviewers' LinkedIn.",
+      "Structure: what the company does, how it makes money, a recent move, your read on the challenge.",
+      "Finish by handing a question back: it turns a test into a conversation."
+    ],
+    "note": "Fill the brackets with your research on the actual company. The last line turns the answer into a dialogue.",
+    "model": "Let me share my read on your business. You're a [sector] company; your core product is [X], and you make money through [model]. Recently you [raised a round, launched Y or expanded to Z], and your main competitors are [A and B]. My impression is that your edge is [differentiator], and from the outside, the big technology challenge right now looks like [scale, reliability or speed], which is exactly the kind of problem I've solved before. How close is that to how you see it?",
+    "phrases": [
+      "Let me share my read on your business.",
+      "How close is that to how you see it?"
+    ],
+    "fu": [
+      "What would you change about our product?",
+      "Who do you think is our biggest threat?"
+    ]
+  },
+  {
+    "id": "c12",
+    "cat": "classicas",
+    "q": "Do you have any questions for us?",
+    "want": "Genuine interest and the caliber of your questions. It can close or kill the role, per your material.",
+    "tips": [
+      "Never say no, I think we covered everything. Always have 3 prepared.",
+      "Executive-grade questions: success in year one, biggest technology risk, how decisions get made.",
+      "Avoid asking about vacation, benefits and remote work in the first conversation."
+    ],
+    "model": "I do, three of them. First: what does success look like for this role at the end of year one, in your words? Second: what is the biggest technology risk to the business plan today? And third: how does the executive team decide when product and engineering disagree? I ask because that tells me how decisions really get made here.",
+    "phrases": [
+      "What does success look like at the end of year one?",
+      "What's the biggest technology risk to the business plan?",
+      "What made the last person in this seat succeed, or not?"
+    ],
+    "fu": []
+  },
+  {
+    "id": "l1",
+    "cat": "lideranca",
+    "q": "How do you build and scale a technology team?",
+    "want": "Whether you have a method for building teams, or just got lucky.",
+    "tips": [
+      "Use UPBET as the full case: diagnosis, org design, leaders first, rituals.",
+      "Principle to close on: structure follows strategy, leaders come before scale.",
+      "Quote the numbers: 30 people, managers and tech leads, plus vendor teams."
+    ],
+    "model": "I've done this twice in the last three years, so let me use UPBET as the example. I arrived to a team of only developers, no structure. First thirty days: I mapped the business priorities, the platform risks and the people, who could grow, what was missing. Then I designed the target organization around the operation's needs: engineering, SRE, security, data, QA and product. I hired managers and tech leads first, because leadership leverage comes before headcount. I set up the rituals: planning, incident management, postmortems, and a technology master plan connected to the business goals. Today it's around thirty people plus vendor teams, with clear ownership per area. The principle: structure follows strategy, and leaders come before scale.",
+    "phrases": [
+      "Leaders come before scale.",
+      "Structure follows strategy.",
+      "Clear ownership per area."
+    ],
+    "fu": [
+      "How do you decide between hiring managers and senior engineers?",
+      "What's your biggest hiring mistake?"
+    ]
+  },
+  {
+    "id": "l2",
+    "cat": "lideranca",
+    "q": "Describe your leadership style.",
+    "want": "Whether your style works for the company's current stage.",
+    "tips": [
+      "Be concrete: leading through managers, blameless culture, cost ownership, transparency with numbers.",
+      "Include how your team would describe you: demanding on outcomes, calm under pressure.",
+      "One signature line makes you memorable."
+    ],
+    "model": "Direct, structured and built on ownership. I lead through managers and tech leads, I'm allergic to micromanagement, but I go deep when the risk is high. I run a blameless culture: incidents end in postmortems and better systems, not in blame. I push cost awareness down to the team, so everyone treats company money as their own, and I'm transparent with numbers, up and down. My teams would say I'm demanding on outcomes and calm under pressure. And I say hard things respectfully and early, because unspoken problems compound.",
+    "phrases": [
+      "Demanding on outcomes, calm under pressure.",
+      "Unspoken problems compound.",
+      "Everyone treats company money as their own."
+    ],
+    "fu": [
+      "Give me an example of a hard decision that style produced.",
+      "When does that style not work?"
+    ]
+  },
+  {
+    "id": "l3",
+    "cat": "lideranca",
+    "q": "How do you balance technical debt against new features?",
+    "want": "Engineering maturity and business sense at the same time.",
+    "tips": [
+      "Treat debt as a financial decision: deliberate and tracked, with an expected return.",
+      "Your real examples: decoupling deploy from release with feature flags at Bazk and UPBET.",
+      "Show that invisible debt is the danger, not debt itself."
+    ],
+    "model": "I treat technical debt as a financial decision, not a religious one. Debt is fine when it's deliberate and tracked; it's dangerous when it's invisible. In practice, I keep a visible register of the debt that actually threatens the business: reliability, security, cost and speed of delivery. Then I negotiate capacity for it in the roadmap like any other investment, with an expected return. Two examples: at Bazk and at UPBET I decoupled deploy from release with feature flags, which killed the weekly release window and cut delivery risk. That was paying debt with immediate business return: faster and safer releases.",
+    "phrases": [
+      "Technical debt is a financial decision, not a religious one.",
+      "Deliberate and tracked debt is fine; invisible debt is dangerous."
+    ],
+    "fu": [
+      "How much of your roadmap goes to debt today?",
+      "Who decides when debt gets paid, you or the product team?"
+    ]
+  },
+  {
+    "id": "l4",
+    "cat": "lideranca",
+    "q": "How do you keep engineering aligned with the business?",
+    "want": "Whether technology is a business partner or a silo.",
+    "tips": [
+      "Your case is strong: you own technology AND product, so alignment is structural.",
+      "Name the mechanisms: personas with product, LTV and retention metrics, a plan built with marketing and sales, results to shareholders.",
+      "Close with the effect: when the team understands the business, prioritization conflicts nearly disappear."
+    ],
+    "model": "By making the business the source of truth for the roadmap. At UPBET I own product and technology, so alignment is structural: we build personas with the product team and manage by business metrics, LTV, retention, conversion. The technology master plan is written with marketing and commercial, not for them. Every quarter I present results and investments to shareholders and the CFO in business language: what we spent, what it returned, what comes next. And the engineers see the connection too: release notes, metrics on dashboards, postmortems tied to revenue impact. When the team understands the business, most prioritization conflicts simply disappear.",
+    "phrases": [
+      "The business is the source of truth for the roadmap.",
+      "In business language: what we spent, what it returned, what comes next."
+    ],
+    "fu": [
+      "Tell me about a time engineering and business goals clashed.",
+      "How do engineers react to being measured on business metrics?"
+    ]
+  },
+  {
+    "id": "l5",
+    "cat": "lideranca",
+    "q": "Which KPIs do you use to run engineering?",
+    "want": "Whether you manage by data or by feel.",
+    "tips": [
+      "Four families: delivery, reliability, cost efficiency, product outcomes.",
+      "Tie each family to a fact of yours: continuous deploy behind flags, postmortems, FinOps with 70% reduction, LTV and retention.",
+      "Close with the philosophy: a few visible KPIs beat many ignored ones."
+    ],
+    "model": "Four families. Delivery: lead time and deployment frequency; we deploy continuously behind feature flags. Reliability: availability, incidents by severity and time to recover, reviewed in blameless postmortems. Efficiency: infrastructure cost as a percentage of revenue, with real FinOps discipline; that's how I cut costs seventy percent at UPBET without hurting reliability. And product outcomes: LTV, retention and conversion, because a shipped feature that doesn't move a metric is just cost. I keep the list short and visible. Ten KPIs nobody looks at are worse than four everyone knows.",
+    "phrases": [
+      "Ten KPIs nobody looks at are worse than four everyone knows.",
+      "A shipped feature that doesn't move a metric is just cost."
+    ],
+    "fu": [
+      "What's your current availability number?",
+      "Which KPI would you drop if you had to?"
+    ]
+  },
+  {
+    "id": "l6",
+    "cat": "lideranca",
+    "q": "How do you decide between build and buy?",
+    "want": "Economic reasoning in architecture decisions.",
+    "tips": [
+      "Clear rule: build what differentiates, buy what does not.",
+      "Your two real sides: the proprietary platform at UPBET (build) and Datadog at Bazk with a payback case to shareholders (buy).",
+      "Show discipline on the buy side: SLA contracts with loss-of-profit clauses."
+    ],
+    "model": "My rule: build what differentiates you, buy what doesn't. At UPBET the platform is proprietary because the platform is the business; that's where engineering time goes. Observability is not our differentiator, so at Bazk I bought Datadog, and I presented the payback case to shareholders before signing. I also negotiate hard on the buy side: SLA contracts with loss-of-profit clauses, because a vendor failure in a real-money operation is my failure. And I revisit the decision over time: a build that made sense at one scale can become a buy later, and the other way around.",
+    "phrases": [
+      "Build what differentiates you, buy what doesn't.",
+      "A vendor failure in a real-money operation is my failure."
+    ],
+    "fu": [
+      "Tell me about a build decision you regret.",
+      "How do you avoid vendor lock-in?"
+    ]
+  },
+  {
+    "id": "l7",
+    "cat": "lideranca",
+    "q": "How are you thinking about AI in your organization?",
+    "want": "Whether you have a real AI strategy or just talking points. Almost guaranteed in 2026.",
+    "tips": [
+      "Your concrete case: the AI First initiative, Copilot with change management, corporate strategy with the data team.",
+      "Executive position: the risk is not adopting, it is adopting without governance.",
+      "Avoid hype: talk about measurement, reliable data and review discipline."
+    ],
+    "model": "I run an initiative called AI First. At UPBET we adopted GitHub Copilot and complementary tools across development, and I treated it as change management, not tool installation: training, usage guidelines, and measuring where it actually helps. Beyond engineering, I'm building the corporate AI strategy together with the data team, on top of a Lakehouse architecture, so the models work with reliable data. My view is simple: AI raises the bar for everyone, and the real risk is not adopting it, it's adopting it without governance. Code review discipline, security and data quality matter more than ever.",
+    "phrases": [
+      "The risk is not adopting AI, it's adopting it without governance.",
+      "Change management, not tool installation."
+    ],
+    "fu": [
+      "What measurable gains has Copilot produced?",
+      "Where would you NOT use AI today?"
+    ]
+  },
+  {
+    "id": "l8",
+    "cat": "lideranca",
+    "q": "How do you handle conflict between product and engineering?",
+    "want": "How you arbitrate conflict between areas.",
+    "tips": [
+      "Mature diagnosis: the cause is missing shared context, not bad intentions.",
+      "Mechanisms: one roadmap, shared business metrics, explicit trade-offs.",
+      "Posture: decide fast on an impasse and explain why."
+    ],
+    "model": "At UPBET I own both sides, and that taught me the real cause of this conflict: missing shared context, not bad intentions. Product pushes scope because they see the market; engineering pushes back because they see the risk. My approach: one roadmap, one set of business metrics, and explicit trade-off conversations, what we gain, what we risk, what we drop. When there's an impasse, I decide fast and explain why, because slow decisions damage both sides more than wrong ones. And postmortems apply to product bets too: if a feature doesn't move LTV or retention, we say it out loud and learn from it.",
+    "phrases": [
+      "Missing shared context, not bad intentions.",
+      "Slow decisions damage both sides more than wrong ones."
+    ],
+    "fu": [
+      "Who has the final word on scope in your team?",
+      "Give me a real trade-off conversation you led."
+    ]
+  },
+  {
+    "id": "l9",
+    "cat": "lideranca",
+    "q": "What would your first ninety days here look like?",
+    "want": "Whether you have a plan and know how to earn credibility fast.",
+    "tips": [
+      "30/60/90 structure: listen and map; diagnosis and plan with quick wins; execution with a scorecard.",
+      "Promise early credibility: reliability or cost are usually the quick wins.",
+      "Say what you will NOT do too: touch the org chart in week one."
+    ],
+    "model": "Listen first, then structure, then quick wins. In the first thirty days I focus on understanding: the business model, the team, the key stakeholders, the platform risks and the numbers. I don't touch the org chart in week one. From thirty to sixty, I deliver a diagnosis with a clear plan: the target organization, the priorities, and two or three quick wins that build credibility, usually in reliability or cost. From sixty to ninety, the plan is in execution, the right leaders are in place, and there's a scorecard the CEO and I review together. I've run this playbook at UPBET and at Bazk: ninety days is enough to have direction, momentum and trust.",
+    "phrases": [
+      "Listen first, then structure, then quick wins.",
+      "Direction, momentum and trust.",
+      "I don't touch the org chart in week one."
+    ],
+    "fu": [
+      "What would you NOT do in the first ninety days?",
+      "What's the fastest quick win you've ever delivered?"
+    ]
+  },
+  {
+    "id": "l10",
+    "cat": "lideranca",
+    "q": "How do you manage a technology budget?",
+    "want": "Whether you speak the CFO's language.",
+    "tips": [
+      "Cover the cycle: planning from the roadmap, execution with FinOps, vendors with SLAs, accountability.",
+      "Drop the numbers: 70% at UPBET, 50 to 60% at Bazk, 40% on logs at Inter, always with reliability going up.",
+      "Strong line: every significant cost has an owner and a why."
+    ],
+    "model": "I run OPEX and CAPEX with the same discipline a CFO would expect. Planning: the budget is built from the roadmap and the operation, not last year plus ten percent. Execution: a FinOps culture where every significant cost has an owner and a why, and the team treats company money as their own. Vendors: hard negotiation and contracts with SLAs, including loss-of-profit clauses for critical services. And accountability: I present spend and return to shareholders and the CFO. The results are consistent: seventy percent infrastructure cost reduction at UPBET, more than half at Bazk, forty percent in log costs at Inter, all with reliability going up, not down.",
+    "phrases": [
+      "Every significant cost has an owner and a why.",
+      "Not last year plus ten percent.",
+      "With reliability going up, not down."
+    ],
+    "fu": [
+      "What's your infrastructure cost as a share of revenue?",
+      "Where would you cut first in a downturn?"
+    ]
+  },
+  {
+    "id": "l11",
+    "cat": "lideranca",
+    "q": "Tell me about your M&A experience.",
+    "want": "Rare experience that sets technology executives apart.",
+    "tips": [
+      "You lived both sides at Buscape: integrating acquisitions and the due diligence in the sale to Zoom.",
+      "Bonus: Bazk itself was born from the merger of two payment companies.",
+      "Thesis to close on: M&A value is captured or destroyed in the integration."
+    ],
+    "model": "At Buscapé I worked both sides of M&A. On acquisitions, I supported the technical integration of acquired companies: consolidating cloud accounts, standardizing the database layer, keeping the operation stable while systems merged. On the sell side, I supported the technical due diligence when Buscapé was sold to Zoom, presenting the environment, the risks and the costs to the buyer. And at Bazk, the company itself was born from the merger of two payment companies, so I've operated inside a post-merger organization too. What I learned: the value of a deal is captured or destroyed in the integration, and clean, well-documented technology is worth real money in a transaction.",
+    "phrases": [
+      "Value is captured or destroyed in the integration.",
+      "Clean, well-documented technology is worth real money."
+    ],
+    "fu": [
+      "What breaks most tech integrations, in your experience?",
+      "How would you prepare a company to be acquired?"
+    ]
+  },
+  {
+    "id": "b1",
+    "cat": "comportamentais",
+    "q": "Tell me about a time you disagreed with your CEO or a senior executive.",
+    "want": "Courage to disagree and maturity to commit to the final decision.",
+    "tips": [
+      "STAR structure with a mature ending: disagree with data, in private; commit in public.",
+      "Pick a case where you were right AND preserved the relationship.",
+      "Never make the other executive look foolish."
+    ],
+    "note": "This is a realistic structure, not a transcript: swap in YOUR facts before memorizing it. An invented story collapses on the first follow-up.",
+    "model": "Early at UPBET, the pressure was to ship features fast. I believed we first needed managers, incident management and a security baseline, because a real-money platform cannot afford instability. Instead of opinions, I brought data: our incident history, the risk exposure, and what failing an international certification would cost the business. We agreed on a plan that protected feature delivery while I built the foundation in parallel. Months later we passed the certification, and the platform became faster and cheaper to run. What I took from it: disagree with data, in private, and commit in public. That's how I handle every disagreement with the CEO.",
+    "phrases": [
+      "I brought data instead of opinions.",
+      "Disagree with data, in private; commit in public."
+    ],
+    "fu": [
+      "What would you have done if the CEO had said no?",
+      "Have you ever been wrong in one of those disagreements?"
+    ]
+  },
+  {
+    "id": "b2",
+    "cat": "comportamentais",
+    "q": "Tell me about your biggest failure.",
+    "want": "Honesty, accountability and real learning.",
+    "tips": [
+      "A real failure, with real cost, and you at the center of it. I'm too much of a perfectionist is not a failure.",
+      "Half the answer is the system you built so it never repeats.",
+      "Close by showing that system in use today."
+    ],
+    "note": "This is a realistic structure, not a transcript: swap in YOUR facts before memorizing it. An invented story collapses on the first follow-up.",
+    "model": "Early in my leadership career, I kept a senior underperformer on the team for too long. I kept coaching, the results didn't come, and the team noticed the problem before I acted. The cost was real: credibility with the team and months of lost energy. I own that one completely. Since then I follow a simple rule: clear expectations, a defined improvement window with real support, and a decision at the end, every time. I've applied it in every team since, and it's one of the reasons my organizations move fast: people trust that performance actually matters.",
+    "phrases": [
+      "I own that one completely.",
+      "Since then I follow a simple rule.",
+      "People trust that performance actually matters."
+    ],
+    "fu": [
+      "What did that failure cost the company?",
+      "How do you catch that situation earlier today?"
+    ]
+  },
+  {
+    "id": "b3",
+    "cat": "comportamentais",
+    "q": "Tell me about a time you delivered under serious pressure.",
+    "want": "Execution under pressure with method, not heroics.",
+    "tips": [
+      "Your best real case: the UPBET certification with a deadline tied to the license.",
+      "Show the method: workstreams, owners, executive checkpoints.",
+      "Alternatives: Black Fridays at Buscape, Pix incidents at Bazk."
+    ],
+    "model": "The best example is the certification of our platform at UPBET. A regulated real-money operation, an English certification body, hard requirements including penetration tests, and a fixed deadline tied to our license under the new Brazilian regulation. I broke the program into workstreams: security, platform changes, documentation and evidence. Each one had an owner, and I ran weekly executive checkpoints. We passed on schedule, and we've now passed twice. My conclusion after twenty years: pressure with a clear plan is just work; pressure without one is chaos. My job is making sure it's always the first kind.",
+    "phrases": [
+      "A fixed deadline tied to our license.",
+      "I broke the program into workstreams with clear owners.",
+      "Pressure with a clear plan is just work."
+    ],
+    "fu": [
+      "What would you do differently in that project today?",
+      "How did you keep the team from burning out?"
+    ]
+  },
+  {
+    "id": "b4",
+    "cat": "comportamentais",
+    "q": "Tell me about a time you influenced without authority.",
+    "want": "Leadership beyond the org chart.",
+    "tips": [
+      "Strong real case: the Buscape migration to AWS, aligning areas that did not report to you.",
+      "The masterstroke: negotiating funding and credits with AWS itself, removing the cost objection.",
+      "Thesis: influence comes from preparation and from shrinking other people's problems."
+    ],
+    "model": "At Buscapé I led databases, not the company, but I drove a company-wide move: the migration from our physical data center to AWS. I had to align marketing, development, SRE, security and the business side, and none of them reported to me. So I built the case in each area's language: availability for the business, predictability for finance, less operational pain for engineering. And I removed the biggest objection myself: I negotiated directly with AWS for funding and credits, because they wanted our technology on their cloud. The migration happened with availability close to one hundred percent. Influence came from preparation and from making everyone's problem smaller, not from the org chart.",
+    "phrases": [
+      "I built the case in each area's language.",
+      "Influence came from preparation, not from the org chart."
+    ],
+    "fu": [
+      "How did you get finance on board?",
+      "What was the hardest area to convince?"
+    ]
+  },
+  {
+    "id": "b5",
+    "cat": "comportamentais",
+    "q": "Tell me about a time you had to deliver bad news to leadership.",
+    "want": "Transparency and courage with the people above you.",
+    "tips": [
+      "Your rule: bad news travels fast, with a plan attached.",
+      "Executive format: what happened, impact, what we did, what changes.",
+      "No minimizing and no blame. Credibility is built exactly here."
+    ],
+    "note": "This is a realistic structure, not a transcript: swap in YOUR facts before memorizing it. An invented story collapses on the first follow-up.",
+    "model": "I present results to shareholders and the CFO, so delivering bad news is part of my job. My rule: bad news travels fast, with a plan attached. A concrete case: a serious incident in a payments operation. Within hours, leadership had a clear message from me: what happened, the customer impact, what we had already done, and what would change so it wouldn't repeat. No minimizing, no hunting for someone to blame. The postmortem became process improvements, and the next conversation with the board was easier, not harder. If you only show up with good news, nobody trusts your numbers. I'd rather be the executive whose numbers are always trusted.",
+    "phrases": [
+      "Bad news travels fast, with a plan attached.",
+      "No minimizing, no hunting for someone to blame.",
+      "If you only bring good news, nobody trusts your numbers."
+    ],
+    "fu": [
+      "How did the shareholders react?",
+      "Have you ever delayed bad news? What happened?"
+    ]
+  },
+  {
+    "id": "b6",
+    "cat": "comportamentais",
+    "q": "How do you deal with underperformers?",
+    "want": "Whether you are fair and fast with people at the same time.",
+    "tips": [
+      "A four-step process: clear expectations, a direct conversation, a window with support, a decision.",
+      "The bigger damage is not the underperformer: it is what the rest of the team concludes if nothing happens.",
+      "Closing line: being fair and being slow are not the same thing."
+    ],
+    "model": "Directly, and with a process. First I make sure the problem is real and visible: clear expectations and measurable outcomes, so it's not about opinions. Then a direct conversation, because most people don't hear the truth early enough. Then a defined improvement window with real support from me and the manager. And at the end, a decision: improvement, a different seat, or a respectful exit. I learned the hard way that the biggest damage is not the underperformer, it's what the rest of the team concludes if nothing happens. Being fair and being slow are not the same thing.",
+    "phrases": [
+      "Being fair and being slow are not the same thing.",
+      "Clear expectations, a real window, a decision at the end."
+    ],
+    "fu": [
+      "How long is that improvement window for you?",
+      "Tell me about someone who turned it around."
+    ]
+  },
+  {
+    "id": "x1",
+    "cat": "curveball",
+    "q": "Sell me your current product in one minute.",
+    "want": "Persuasive communication and passion for what you build.",
+    "tips": [
+      "Pitch structure: the invisible problem, how the product solves it, proof, why it matters to the business.",
+      "Speak slowly and with conviction. A minute is longer than it feels.",
+      "Practice with a timer: this question catches almost everyone."
+    ],
+    "model": "Take our platform at UPBET. Real-money entertainment demands three things the user never sees: the money is always right, the product is always up, and every rule of the regulator is enforced in software. Our proprietary platform delivers exactly that, twenty-four seven, and it has been certified twice by an international body. For the business, proprietary means speed: we ship what the market needs in days, on our own roadmap, not a vendor's. So that's the product in one line: trust, uptime, and speed of evolution. That combination is why the operation can grow without fear.",
+    "phrases": [
+      "Three things the user never sees.",
+      "Trust, uptime, and speed of evolution."
+    ],
+    "fu": [
+      "Now sell me the biggest weakness of that product.",
+      "Who is your product losing to, and why?"
+    ]
+  },
+  {
+    "id": "x2",
+    "cat": "curveball",
+    "q": "What's an unpopular opinion you hold about technology?",
+    "want": "Independent thinking and the ability to defend a position.",
+    "tips": [
+      "Have ONE rehearsed opinion, backed by evidence from your career.",
+      "Yours is honest and distinctive: the problem is ownership and decisions, not tools.",
+      "Be ready for the classic follow-up: argue the opposite side."
+    ],
+    "model": "That most companies don't have a technology problem; they have a decision problem. I've cut infrastructure costs in half or more three times in my career, and in every single case the waste came from decisions nobody owned: services running because no one asked why, architectures nobody revisited, contracts renewed on autopilot. The tools were never the bottleneck; ownership was. So I'm skeptical of silver-bullet adoption, microservices, AI, whatever the current wave is, without an owner and a number attached. It's unpopular because it's less exciting than new technology. It's also what actually works.",
+    "phrases": [
+      "Tools were never the bottleneck; ownership was.",
+      "Without an owner and a number attached."
+    ],
+    "fu": [
+      "Defend the opposite view for a minute.",
+      "How does that opinion change how you hire?"
+    ]
+  },
+  {
+    "id": "x3",
+    "cat": "curveball",
+    "q": "If we called your current CEO, what would they say about you?",
+    "want": "Self-perception and the consistency of your narrative.",
+    "tips": [
+      "Three qualities with backing, plus one criticism that is really a high bar.",
+      "It has to be something your CEO would actually confirm: coherence is the test.",
+      "Smile when you answer: the question also measures discomfort."
+    ],
+    "model": "That I deliver what I commit to, that I tell the truth even when it's uncomfortable, and that the technology bill went down while the platform got better. Probably also that I ask a lot of questions about money, because I made cost awareness part of the engineering culture. And if they were being critical, they'd say I set a very high bar and I push hard on accountability. I'd accept that one without arguing.",
+    "phrases": [
+      "That I deliver what I commit to.",
+      "I'd accept that one without arguing."
+    ],
+    "fu": [
+      "And what would they honestly criticize?",
+      "Would they be surprised you're interviewing?"
+    ]
+  },
+  {
+    "id": "x4",
+    "cat": "curveball",
+    "q": "Why hire an external CTO instead of promoting internally?",
+    "want": "Whether you justify your value without attacking the internal team.",
+    "tips": [
+      "Start by agreeing: it only makes sense if the external hire brings what the house lacks.",
+      "Your differentiator: pattern recognition from building two organizations and passing certifications.",
+      "Close gracefully: the best case is the external leader developing the internal ones."
+    ],
+    "model": "Honestly, you shouldn't, unless the external person brings something the inside doesn't have yet. In my case, that's pattern recognition: I've built two technology organizations from scratch, operated in three regulated environments, and taken platforms through international certification. If your challenge is scaling structure, predictability and cost discipline fast, I've already made those mistakes and learned from them on someone else's clock. And the best setup is usually both: an external executive who develops the internal talent into the next generation of leaders. That's exactly how I work; my managers and tech leads grow, and that's part of my job description as I see it.",
+    "phrases": [
+      "Unless the external person brings something the inside doesn't have.",
+      "I've made the mistakes and learned from them on someone else's clock."
+    ],
+    "fu": [
+      "What will you do in the first month to win over the internal team?",
+      "What if a strong internal candidate resents you?"
+    ]
+  },
+  {
+    "id": "x5",
+    "cat": "curveball",
+    "q": "What do you do when you don't know the answer?",
+    "want": "Intellectual honesty under pressure.",
+    "tips": [
+      "Use the structure in the interview itself if you need it: what I know, what I don't, when I'll come back, my hypothesis.",
+      "An invented answer costs everything; I don't know yet, here's my plan builds trust.",
+      "Give an example of a decision made with incomplete information."
+    ],
+    "model": "I say so, and then I say how I'll find out. In boardrooms and in interviews, invented answers eventually get exposed, and they cost you everything. My format is simple: here's what I know, here's what I don't, here's when I'll come back with the answer, and here's my current hypothesis if the decision can't wait. Twenty years in technology taught me that \"I don't know yet, and here's my plan\" builds far more trust than a confident guess. My teams work the same way, and it shows in our postmortems: facts first, conclusions after.",
+    "phrases": [
+      "Here's what I know, here's what I don't, and here's my plan.",
+      "Facts first, conclusions after."
+    ],
+    "fu": [
+      "So tell me something in your own area you don't know today.",
+      "When has a hypothesis of yours been wrong?"
+    ]
+  }
 ];
 /* ===== Interview Room · lógica ===== */
 (function () {
@@ -1059,15 +1097,13 @@ const state = {
   pos: 0,
   practiced: new Set(),
   answers: {},          /* id -> texto da resposta nesta sessão */
-  fb: {},               /* id -> html do feedback nesta sessão */
   revealed: new Set(),  /* modelos revelados no modo autoteste */
   testMode: false,
   showList: false,
   elapsed: 0,
   timerInt: null,
   timerOn: false,
-  apiKey: '',
-  sim: null
+  mock: null,
 };
 
 /* ---------- armazenamento: localStorage (GitHub/iPhone) com fallback para o storage de artifacts ---------- */
@@ -1092,7 +1128,6 @@ async function loadProgress() {
       (o.practiced || []).forEach((id) => state.practiced.add(id));
     } catch (e) {}
   }
-  state.apiKey = (await storeGet('ir-apikey')) || '';
 }
 function saveProgress() { storeSet('ir-progress', JSON.stringify({ practiced: Array.from(state.practiced) })); }
 
@@ -1179,80 +1214,9 @@ function setLight(on) {
   if (el) el.classList.toggle('live', !!on);
 }
 
-/* ---------- markdown simples para o feedback da IA ---------- */
+/* ---------- utilitários ---------- */
 function esc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
-function md(s) {
-  const lines = esc(s).split(/\r?\n/);
-  let out = '', inUl = false;
-  for (const ln of lines) {
-    const t = ln.trim();
-    if (/^#{2,4}\s+/.test(t)) {
-      if (inUl) { out += '</ul>'; inUl = false; }
-      out += '<h4>' + t.replace(/^#{2,4}\s+/, '') + '</h4>';
-      continue;
-    }
-    if (/^[-*•]\s+/.test(t)) {
-      if (!inUl) { out += '<ul>'; inUl = true; }
-      out += '<li>' + t.replace(/^[-*•]\s+/, '') + '</li>';
-      continue;
-    }
-    if (t === '') { if (inUl) { out += '</ul>'; inUl = false; } continue; }
-    if (inUl) { out += '</ul>'; inUl = false; }
-    out += '<p>' + t + '</p>';
-  }
-  if (inUl) out += '</ul>';
-  return out.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-}
-
-/* ---------- API ---------- */
-function aiErrMsg() {
-  return state.apiKey
-    ? 'Falha ao falar com a IA. Verifique a conexão e a chave (⚙) e tente de novo.'
-    : 'Para usar a IA neste app, toque em ⚙ no topo e salve sua chave da API Anthropic. Dentro do claude.ai isso não é necessário.';
-}
-async function askClaude(system, messages) {
-  const headers = { 'Content-Type': 'application/json' };
-  if (state.apiKey) {
-    headers['x-api-key'] = state.apiKey;
-    headers['anthropic-version'] = '2023-06-01';
-    headers['anthropic-dangerous-direct-browser-access'] = 'true';
-  }
-  const res = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: headers,
-    body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 1000, system: system, messages: messages })
-  });
-  if (!res.ok) throw new Error('HTTP ' + res.status);
-  const data = await res.json();
-  if (data.error) throw new Error(data.error.message || 'API error');
-  return (data.content || []).filter((b) => b.type === 'text').map((b) => b.text).join('\n').trim();
-}
-
-const COACH_SYSTEM = 'Você é um coach executivo de entrevistas em inglês: direto, exigente e sem elogios vazios. Está preparando Antonio, um CTO brasileiro, para entrevistas de nível executivo em inglês. Responda sempre em português do Brasil, exceto os trechos em inglês corrigidos ou reescritos. Não use travessão (—) nos textos.';
-
-function fbPrompt(q, txt) {
-  return 'Pergunta da entrevista: "' + q.q + '"\n\n'
-    + 'Contexto real do candidato (CV): ' + CV_SUMMARY + '\n\n'
-    + 'Resposta dada pelo candidato (falada e transcrita, ou digitada; pode ter erros de ditado):\n"""\n' + txt + '\n"""\n\n'
-    + 'Avalie e responda EXATAMENTE neste formato:\n'
-    + '### Nota\n(x/10 e uma frase de justificativa)\n'
-    + '### O que funcionou\n(até 2 bullets)\n'
-    + '### O que melhorar\n(até 3 bullets: conteúdo, estrutura e uso dos fatos e números do CV)\n'
-    + '### Inglês\n(erros ou construções pouco naturais, com a forma melhor; se estava bom, diga em 1 linha)\n'
-    + '### Versão aprimorada\n(reescreva a resposta DELE em inglês natural falado, 100 a 150 palavras, mantendo os fatos dele, tom executivo)';
-}
-function evalPrompt(role, transcript) {
-  return 'Entrevista simulada em inglês para a vaga: ' + role + '.\n'
-    + 'Contexto real do candidato (CV): ' + CV_SUMMARY + '\n\n'
-    + 'Transcript completo:\n"""\n' + transcript + '\n"""\n\n'
-    + 'Avalie o desempenho de Antonio e responda EXATAMENTE neste formato:\n'
-    + '### Avaliação geral\n(nota x/10 e 2 frases diretas)\n'
-    + '### Pontos fortes\n(até 3 bullets)\n'
-    + '### Pontos a corrigir\n(até 4 bullets, do mais grave ao menor: conteúdo, estrutura, uso dos números do CV)\n'
-    + '### Inglês\n(erros ou frases pouco naturais que ele usou, com a versão melhor; se o inglês esteve bom, diga)\n'
-    + '### Próximos treinos\n(3 exercícios específicos e práticos para as fraquezas identificadas)';
 }
 
 /* ---------- helpers ---------- */
@@ -1280,7 +1244,7 @@ function currentQ() { return qById(state.order[state.pos]); }
 function updateCounts() {
   const n = state.practiced.size;
   const pp = $('#t-progress');
-  if (pp) pp.textContent = n + '/' + QUESTIONS.length + ' praticadas';
+  if (pp) pp.textContent = n + '/' + QUESTIONS.length + ' practiced';
 }
 
 /* ---------- timer ---------- */
@@ -1334,11 +1298,11 @@ function toggleMark() {
 
 function modelBlock(q) {
   if (state.testMode && !state.revealed.has(q.id)) {
-    return `<div class="row"><button class="btn" id="t-reveal">Mostrar resposta modelo</button></div>`;
+    return `<div class="row"><button class="btn" id="t-reveal">Show model answer</button></div>`;
   }
-  return `<div class="label">Model answer <button class="mini" id="t-saymodel" title="Ouvir em inglês">🔊</button></div>
+  return `<div class="label">Model answer <button class="mini" id="t-saymodel" title="Listen">🔊</button></div>
     <div class="paper">${esc(q.model)}</div>
-    ${q.phrases && q.phrases.length ? '<div class="label">Frases prontas (toque para ouvir)</div><div class="chips small">' + q.phrases.map((p) => `<button class="chip phrase say-en">${esc(p)}</button>`).join('') + '</div>' : ''}`;
+    ${q.phrases && q.phrases.length ? '<div class="label">Ready-made lines (tap to listen)</div><div class="chips small">' + q.phrases.map((p) => `<button class="chip phrase say-en">${esc(p)}</button>`).join('') + '</div>' : ''}`;
 }
 
 function renderTrain() {
@@ -1346,49 +1310,44 @@ function renderTrain() {
   if (!st) return;
   if (!state.order.length) buildOrder();
   const q = currentQ();
-  if (!q) { st.innerHTML = '<p class="note">Sem perguntas neste filtro.</p>'; return; }
+  if (!q) { st.innerHTML = '<p class="note">No questions in this filter.</p>'; return; }
   const done = state.practiced.has(q.id);
   const ans = state.answers[q.id] || '';
-  const fb = state.fb[q.id] || '';
 
   st.innerHTML = `<div class="traincard">
     <div class="tophead">
       <span class="mono">${state.pos + 1} / ${state.order.length} · ${CATLABEL[q.cat]}</span>
-      <button class="mark-chip ${done ? 'on' : ''}" id="t-mark" title="Marcar ou desmarcar como praticada">${done ? '✓ praticada' : '○ praticar'}</button>
+      <button class="mark-chip ${done ? 'on' : ''}" id="t-mark" title="Mark or unmark as practiced">${done ? '✓ practiced' : '○ to practice'}</button>
     </div>
 
-    <div class="tq">${esc(q.q)} <button class="mini" id="t-sayq" title="Ouvir a pergunta">🔊</button></div>
-    <p class="hint">Ouça, estude a estratégia e o modelo logo abaixo, e responda em voz alta na mesma tela.</p>
+    <div class="tq">${esc(q.q)} <button class="mini" id="t-sayq" title="Listen to the question">🔊</button></div>
+    <p class="hint">Listen, study the strategy and the model below, then answer out loud on this same screen.</p>
 
-    <div class="label">O que estão avaliando</div>
+    <div class="label">What they are assessing</div>
     <p class="want">${esc(q.want)}</p>
 
-    <div class="label">Como responder</div>
+    <div class="label">How to answer</div>
     <ul class="tips">${q.tips.map((t) => '<li>' + esc(t) + '</li>').join('')}</ul>
     ${q.note ? '<p class="note warn">' + esc(q.note) + '</p>' : ''}
 
     ${modelBlock(q)}
 
-    <div class="label">Sua vez · alvo 60 a 90s</div>
+    <div class="label">Your turn · target 60 to 90s</div>
     <div class="prow">
-      <button class="iconbtn" id="t-mic" title="Ditar em inglês">🎙</button>
+      <button class="iconbtn" id="t-mic" title="Dictate in English">🎙</button>
       <div class="timer mono" id="t-timer">0:00</div>
-      <button class="mini" id="t-treset" title="Zerar cronômetro">↺</button>
+      <button class="mini" id="t-treset" title="Reset timer">↺</button>
       <span class="tstats" id="t-wc"></span>
     </div>
     <p class="note tiny" id="t-recstate"></p>
-    <p class="note" id="t-micnote" hidden>Ditado interno indisponível neste navegador (no iPhone, só o Safari libera). Use o microfone do teclado (tecla 🎙 do teclado, com teclado em inglês): o texto entra aqui e o cronômetro conta do mesmo jeito.</p>
-    <textarea id="t-ta" placeholder="Responda em voz alta. O que você ditar ou digitar aqui vai para o feedback da IA."></textarea>
-    <div class="row">
-      <button class="btn primary" id="t-fb">Feedback da IA</button>
-    </div>
-    <div id="t-fbbox"></div>
+    <p class="note" id="t-micnote" hidden>Built-in dictation is not available in this browser (on iPhone, only Safari allows it). Use your keyboard microphone key with the English keyboard: the text lands here and the timer still runs.</p>
+    <textarea id="t-ta" placeholder="Optional: jot down the key points you said, to compare with the model answer."></textarea>
 
-    ${q.fu && q.fu.length ? '<div class="label">Follow-ups prováveis</div><ul class="tips fu">' + q.fu.map((t) => '<li>' + esc(t) + '</li>').join('') + '</ul>' : ''}
+    ${q.fu && q.fu.length ? '<div class="label">Likely follow-ups</div><ul class="tips fu">' + q.fu.map((t) => '<li>' + esc(t) + '</li>').join('') + '</ul>' : ''}
 
     <div class="navrow">
-      <button class="btn ghost" id="t-prev">← Anterior</button>
-      <button class="btn" id="t-next">Próxima →</button>
+      <button class="btn ghost" id="t-prev">← Previous</button>
+      <button class="btn" id="t-next">Next →</button>
     </div>
   </div>`;
 
@@ -1399,15 +1358,15 @@ function renderTrain() {
     const el = $('#t-recstate');
     if (!el) return;
     if (micOn()) {
-      el.textContent = '● Gravando... toque em ■ para encerrar. Pausas longas encerram sozinhas.';
+      el.textContent = '● Recording... tap ■ to stop. Long pauses stop it automatically.';
       el.classList.add('recing');
     } else if (ta.value.trim()) {
-      el.textContent = 'Gravação encerrada. Revise o texto e toque em Feedback da IA.';
+      el.textContent = 'Recording stopped. Compare what you said with the model answer above.';
       el.classList.remove('recing');
     } else {
       el.textContent = micSupported()
-        ? 'Toque no microfone e responda em voz alta. O mesmo botão (■) encerra a gravação.'
-        : 'Responda em voz alta usando o microfone do teclado (teclado em inglês) ou digite.';
+        ? 'Tap the microphone and answer out loud. The same button (■) stops it.'
+        : 'Answer out loud using your keyboard microphone (English keyboard), or type.';
       el.classList.remove('recing');
     }
   };
@@ -1440,32 +1399,6 @@ function renderTrain() {
   if (!micSupported()) $('#t-micnote').hidden = false;
   $('#t-treset').onclick = tReset;
 
-  if (fb) { $('#t-fbbox').innerHTML = fb; }
-  $('#t-fb').onclick = async () => {
-    const txt = (state.answers[q.id] || '').trim();
-    const box = $('#t-fbbox');
-    if (wordCount(txt) < 15) {
-      box.innerHTML = '<p class="note">Dite ou digite sua resposta (pelo menos algumas frases) para receber um feedback útil.</p>';
-      return;
-    }
-    stopMic(); tStop();
-    if (!state.practiced.has(q.id)) { state.practiced.add(q.id); saveProgress(); updateCounts(); renderListPanel(); }
-    const chip = $('#t-mark');
-    if (chip) { chip.classList.add('on'); chip.textContent = '✓ praticada'; }
-    box.innerHTML = '<p class="note">Avaliando sua resposta...</p>';
-    const btn = $('#t-fb'); btn.disabled = true;
-    try {
-      const out = await askClaude(COACH_SYSTEM, [{ role: 'user', content: fbPrompt(q, txt) }]);
-      const html = '<div class="paper md">' + md(out) + '</div>';
-      state.fb[q.id] = html;
-      box.innerHTML = html;
-      box.scrollIntoView({ block: 'nearest' });
-    } catch (e) {
-      box.innerHTML = '<p class="note warn">' + aiErrMsg() + '</p>';
-    }
-    btn.disabled = false;
-  };
-
   $('#t-prev').onclick = () => goTo(state.pos - 1);
   $('#t-next').onclick = () => goTo(state.pos + 1);
 }
@@ -1490,196 +1423,211 @@ function renderListPanel() {
   });
 }
 
-/* ---------- SIMULAR ---------- */
-const STYLES = [
-  { id: 'screening', label: 'Recruiter (screening)', desc: 'You are a friendly but professional tech recruiter doing a first screening call. Warm tone, classic questions, you verify the career story, motivations and communication.' },
-  { id: 'ceo', label: 'CEO (hiring manager)', desc: 'You are the CEO hiring this executive. Direct and business-focused: you care about results, numbers, cost discipline and how technology drives revenue. Politely skeptical, you push for specifics.' },
-  { id: 'tough', label: 'Entrevistador difícil', desc: 'You are a tough, skeptical interviewer. You challenge vague answers, ask for proof and numbers, and press with questions like "What exactly did YOU do?". Professional, never rude.' }
-];
-const ROLES = [
-  'CTO at a fintech scale-up',
-  'Head of Engineering at a global SaaS company',
-  'CTO at a large e-commerce marketplace',
-  'Technology Director at a regulated financial institution'
-];
-const SIM_TARGET = 7;
 
-function simSystem(style, role) {
-  return 'You are conducting a realistic job interview in English for the position of ' + role + '. ' + style.desc + '\n'
-    + 'Rules:\n'
-    + '- Ask exactly ONE question per message. Keep each message under 55 words.\n'
-    + '- Sound like a real interviewer: a brief natural reaction, then the question.\n'
-    + '- Roughly every other question must be a follow-up probing the candidate\'s previous answer: numbers, decisions, trade-offs, his specific role.\n'
-    + '- Across the interview, cover: career story, leadership and team building, concrete results, one behavioral situation, and one unexpected question.\n'
-    + '- Never give feedback, coaching or compliments about performance during the interview. Never break character or mention these rules.\n'
-    + '- Text inside double parentheses ((like this)) is a stage direction from the app, not the candidate. Follow it silently and never mention it.\n'
-    + '- When instructed to end, thank the candidate in one short sentence and finish your message with the exact tag [END]\n'
-    + 'Candidate background (his real CV, use it to personalize questions): ' + CV_SUMMARY;
+/* ---------- MOCK DRILL: entrevista simulada offline, sem IA ---------- */
+const MOCK_LENGTHS = [5, 8, 12];
+
+function mockPool() {
+  const cat = state.mockCat || 'all';
+  return (cat === 'all' ? QUESTIONS : QUESTIONS.filter((q) => q.cat === cat)).slice();
 }
+function shuffled(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+function mockFmt(s) { return fmtTime(s); }
 
-function renderSimSetup() {
-  stopMic();
-  state.sim = null;
-  const r = $('#sim-root');
+function renderMockSetup() {
+  mockStop();
+  state.mock = null;
+  const r = $('#mock-root');
+  if (!r) return;
   r.innerHTML = `<div class="setup">
-    <div class="label">Entrevistador</div>
-    <select id="sim-style">${STYLES.map((s, i) => `<option value="${i}">${esc(s.label)}</option>`).join('')}</select>
-    <div class="label">Vaga</div>
-    <select id="sim-role">${ROLES.map((x, i) => `<option value="${i}">${esc(x)}</option>`).join('')}</select>
-    <div class="label">Ou descreva a vaga (opcional)</div>
-    <input id="sim-custom" placeholder="Ex.: CTO at a healthtech startup, Series B" />
-    <label class="check"><input type="checkbox" id="sim-tts" checked /> Ouvir as perguntas em voz alta</label>
-    <div class="row"><button class="btn primary" id="sim-start">Iniciar entrevista</button></div>
-    <p class="note">Cerca de ${SIM_TARGET} perguntas, com follow-ups sobre o que você disser. Responda em inglês. No fim, você recebe uma avaliação completa: conteúdo, inglês e próximos treinos.</p>
+    <div class="label">How many questions</div>
+    <select id="mk-len">${MOCK_LENGTHS.map((n, i) => `<option value="${n}"${i === 1 ? ' selected' : ''}>${n} questions</option>`).join('')}</select>
+    <div class="label">Focus</div>
+    <select id="mk-cat"><option value="all">All categories</option>${CATS.map((c) => `<option value="${c.id}">${esc(c.label)}</option>`).join('')}</select>
+    <label class="check"><input type="checkbox" id="mk-fu" checked /> Hit me with follow-ups</label>
+    <label class="check"><input type="checkbox" id="mk-tts" checked /> Read the questions out loud</label>
+    <div class="row"><button class="btn primary" id="mk-start">Start the drill</button></div>
+    <p class="note">Random questions, model answers hidden, timer running. Answer out loud, then tap for the follow-up. You get your times and the model answers at the end.</p>
   </div>`;
-  $('#sim-start').onclick = startSim;
+  $('#mk-start').onclick = () => {
+    const len = +$('#mk-len').value;
+    state.mockCat = $('#mk-cat').value;
+    const pool = shuffled(mockPool());
+    state.mock = {
+      list: pool.slice(0, Math.min(len, pool.length)).map((q) => q.id),
+      i: 0,
+      phase: 'q',
+      useFu: $('#mk-fu').checked,
+      tts: $('#mk-tts').checked,
+      times: {},
+      elapsed: 0,
+      int: null,
+      total: 0,
+      done: false
+    };
+    renderMock();
+  };
 }
-function startSim() {
-  const style = STYLES[+$('#sim-style').value];
-  const custom = $('#sim-custom').value.trim();
-  const role = custom || ROLES[+$('#sim-role').value];
-  state.sim = { style, role, tts: $('#sim-tts').checked, msgs: [], answers: 0, ended: false, busy: false, err: '', report: null, evalBusy: false };
-  renderSimChat();
-  simTurn('((Greet the candidate very briefly and ask your first question.))');
+
+function mockPaint() {
+  const el = $('#mk-timer');
+  if (!el || !state.mock) return;
+  el.textContent = mockFmt(state.mock.elapsed);
+  el.classList.toggle('good', state.mock.elapsed >= 60 && state.mock.elapsed <= 120);
+  el.classList.toggle('over', state.mock.elapsed > 120);
 }
-function dispContent(c) {
-  return String(c).replace(/\(\([^)]*\)\)/g, '').replace(/\[END\]/g, '').trim();
+function mockStart() {
+  const m = state.mock;
+  if (!m) return;
+  clearInterval(m.int);
+  m.int = setInterval(() => { m.elapsed++; m.total++; mockPaint(); }, 1000);
+  mockPaint();
 }
-function renderSimChat() {
-  const s = state.sim;
-  if (!s) return;
-  const r = $('#sim-root');
-  r.innerHTML = `<div class="simhead mono">${esc(s.role)} · ${esc(s.style.label)} · resposta ${Math.min(s.answers + 1, SIM_TARGET)}/${SIM_TARGET}</div>
-    <div class="chat" id="sim-chat"></div>
-    ${s.ended ? '' : `<div class="inputrow">
-      <button class="iconbtn" id="sim-mic" title="Ditar em inglês">🎙</button>
-      <textarea id="sim-ta" rows="2" placeholder="Sua resposta em inglês..."></textarea>
-      <button class="btn primary" id="sim-send">Enviar</button>
+function mockStop() {
+  if (state.mock && state.mock.int) { clearInterval(state.mock.int); state.mock.int = null; }
+}
+
+function renderMock() {
+  const m = state.mock;
+  const r = $('#mock-root');
+  if (!r) return;
+  if (!m) { renderMockSetup(); return; }
+  if (m.done) { renderMockSummary(); return; }
+
+  const q = qById(m.list[m.i]);
+  const hasFu = m.useFu && q.fu && q.fu.length;
+  const isFu = m.phase === 'fu';
+  const fuText = isFu ? (m.fuText || q.fu[0]) : '';
+  const lastOne = m.i === m.list.length - 1;
+
+  r.innerHTML = `<div class="mockcard">
+    <div class="mockhead">
+      <span>Question ${m.i + 1} of ${m.list.length}</span>
+      <span>${esc(CATLABEL[q.cat])}</span>
     </div>
-    <p class="note tiny recing" id="sim-recstate" hidden>● Gravando... toque em ■ para encerrar e depois em Enviar.</p>
-    <p class="note" id="sim-micnote" hidden>Ditado interno indisponível neste navegador. Use o microfone do teclado do iPhone (com teclado em inglês) ou digite.</p>
-    <p class="note tiny">Enter envia · Shift+Enter quebra linha</p>
-    <div class="row"><button class="btn ghost small" id="sim-end">Encerrar e receber avaliação</button></div>`}
-    <div id="sim-err"></div>
-    <div id="sim-report"></div>`;
-  drawMsgs();
-  if (!s.ended) {
-    const ta = $('#sim-ta');
-    $('#sim-send').onclick = () => sendSim();
-    ta.onkeydown = (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendSim(); } };
-    $('#sim-mic').onclick = () => toggleMic(ta, $('#sim-mic'), $('#sim-micnote'), null, (on) => {
-      const el = $('#sim-recstate');
-      if (el) el.hidden = !on;
-    });
-    if (!micSupported()) { const n = $('#sim-micnote'); if (n) n.hidden = false; }
-    $('#sim-end').onclick = () => finishSim();
-  }
-  if (s.err) {
-    $('#sim-err').innerHTML = `<p class="note warn">${esc(s.err)}</p><div class="row"><button class="btn small" id="sim-retry">Tentar novamente</button></div>`;
-    $('#sim-retry').onclick = () => simTurn(null);
-  }
-  if (s.report) {
-    $('#sim-report').innerHTML = `<div class="label">Avaliação da entrevista</div><div class="paper md">${md(s.report)}</div>
-      <div class="row"><button class="btn" id="sim-again">Nova simulação</button></div>`;
-    $('#sim-again').onclick = renderSimSetup;
-  } else if (s.evalBusy) {
-    $('#sim-report').innerHTML = '<p class="note">Gerando avaliação completa...</p>';
-  }
+    ${isFu ? '<div class="fulabel">Follow-up</div>' : ''}
+    <div class="mockq">${esc(isFu ? fuText : q.q)} <button class="mini" id="mk-say" title="Listen">🔊</button></div>
+    <div class="mocktimer mono" id="mk-timer">0:00</div>
+    <p class="note">Answer out loud. Target 60 to 90 seconds.</p>
+    <div class="row center wrap">
+      ${(!isFu && hasFu) ? '<button class="btn" id="mk-fubtn">Follow-up →</button>' : ''}
+      <button class="btn primary" id="mk-next">${lastOne ? 'Finish drill' : 'Next question →'}</button>
+    </div>
+    <div class="row center"><button class="btn ghost small" id="mk-end">End drill</button></div>
+  </div>`;
+
+  mockStart();
+  const speakNow = () => speak(isFu ? fuText : q.q);
+  $('#mk-say').onclick = speakNow;
+  if (m.tts) speakNow();
+
+  const fub = $('#mk-fubtn');
+  if (fub) fub.onclick = () => {
+    m.phase = 'fu';
+    m.fuText = q.fu[Math.floor(Math.random() * q.fu.length)];
+    renderMock();
+  };
+  $('#mk-next').onclick = () => mockAdvance();
+  $('#mk-end').onclick = () => mockFinish();
 }
-function drawMsgs() {
-  const c = $('#sim-chat');
-  if (!c || !state.sim) return;
-  const s = state.sim;
-  c.innerHTML = s.msgs.map((m) => {
-    const txt = dispContent(m.content);
-    if (!txt) return '';
-    return `<div class="msg ${m.role === 'assistant' ? 'ai' : 'me'}">${esc(txt)}</div>`;
-  }).join('') + (s.busy ? '<div class="msg ai typing">•••</div>' : '');
-  c.scrollTop = c.scrollHeight;
+
+function mockAdvance() {
+  const m = state.mock;
+  if (!m) return;
+  mockStop();
+  const id = m.list[m.i];
+  m.times[id] = (m.times[id] || 0) + m.elapsed;
+  m.elapsed = 0;
+  if (!state.practiced.has(id)) { state.practiced.add(id); saveProgress(); updateCounts(); }
+  if (m.i >= m.list.length - 1) { mockFinish(); return; }
+  m.i++;
+  m.phase = 'q';
+  m.fuText = null;
+  renderMock();
 }
-async function simTurn(userContent) {
-  const s = state.sim;
-  if (!s || s.busy) return;
-  if (userContent) s.msgs.push({ role: 'user', content: userContent });
-  s.busy = true; s.err = '';
-  renderSimChat();
-  try {
-    const out = await askClaude(simSystem(s.style, s.role), s.msgs.map((m) => ({ role: m.role, content: m.content })));
-    s.msgs.push({ role: 'assistant', content: out });
-    s.busy = false;
-    if (out.indexOf('[END]') > -1) {
-      s.ended = true;
-      renderSimChat();
-      if (s.tts) speak(out);
-      finishSim();
-    } else {
-      renderSimChat();
-      if (s.tts) speak(out);
-    }
-  } catch (e) {
-    s.busy = false;
-    s.err = aiErrMsg();
-    renderSimChat();
-  }
+
+function mockFinish() {
+  const m = state.mock;
+  if (!m) return;
+  mockStop();
+  const id = m.list[m.i];
+  if (m.elapsed > 0) m.times[id] = (m.times[id] || 0) + m.elapsed;
+  m.elapsed = 0;
+  m.done = true;
+  saveProgress();
+  updateCounts();
+  renderMock();
 }
-function sendSim() {
-  const s = state.sim;
-  if (!s || s.busy || s.ended) return;
-  const ta = $('#sim-ta');
-  const txt = ta.value.trim();
-  if (!txt) return;
-  stopMic();
-  ta.value = '';
-  s.answers++;
-  let content = txt;
-  if (s.answers >= SIM_TARGET) {
-    content += "\n((This was the candidate's final answer. Thank him briefly, do not ask another question, and end your message with [END]))";
-  }
-  simTurn(content);
-}
-async function finishSim() {
-  const s = state.sim;
-  if (!s || s.report || s.evalBusy) return;
-  s.ended = true; s.evalBusy = true;
-  stopMic();
-  renderSimChat();
-  const transcript = s.msgs
-    .filter((m) => dispContent(m.content))
-    .map((m) => (m.role === 'assistant' ? 'Interviewer: ' : 'Antonio: ') + dispContent(m.content))
-    .join('\n\n');
-  if (wordCount(transcript) < 20) {
-    s.evalBusy = false;
-    s.report = null;
-    s.err = 'Entrevista curta demais para avaliar. Comece uma nova simulação.';
-    renderSimChat();
-    return;
-  }
-  try {
-    const out = await askClaude(COACH_SYSTEM, [{ role: 'user', content: evalPrompt(s.role, transcript) }]);
-    s.report = out;
-  } catch (e) {
-    s.err = aiErrMsg() + ' Clique para tentar de novo.';
-    s.evalBusy = false;
-    renderSimChat();
-    const btn = $('#sim-retry');
-    if (btn) btn.onclick = () => { s.err = ''; s.evalBusy = false; finishSim(); };
-    return;
-  }
-  s.evalBusy = false;
-  renderSimChat();
+
+function renderMockSummary() {
+  const m = state.mock;
+  const r = $('#mock-root');
+  const answered = m.list.filter((id) => m.times[id]);
+  const total = answered.reduce((a, id) => a + m.times[id], 0);
+  const avg = answered.length ? Math.round(total / answered.length) : 0;
+  const onTarget = answered.filter((id) => m.times[id] >= 60 && m.times[id] <= 120).length;
+
+  r.innerHTML = `<div class="mockcard">
+    <div class="mockq" style="font-size:22px;margin-top:4px">Drill complete</div>
+    <div class="bigstat">
+      <div><b>${answered.length}</b><span>answered</span></div>
+      <div><b>${mockFmt(total)}</b><span>total time</span></div>
+      <div><b>${mockFmt(avg)}</b><span>average</span></div>
+      <div><b>${onTarget}/${answered.length || 0}</b><span>on target</span></div>
+    </div>
+    <p class="note">On target means 60 to 90 seconds, the range that reads as prepared and concise. Tap any question below to read the model answer and see what you missed.</p>
+    <div class="row center wrap">
+      <button class="btn primary" id="mk-again">Run another drill</button>
+    </div>
+  </div>
+  <div class="label">Your answers</div>
+  <div class="sumbox" id="mk-sum"></div>`;
+
+  const box = $('#mk-sum');
+  box.innerHTML = m.list.map((id, i) => {
+    const q = qById(id);
+    const t = m.times[id] || 0;
+    const mark = !t ? '·' : (t < 45 ? '⏱ short' : (t > 120 ? '⏱ long' : '✓'));
+    return `<div>
+      <button class="sumrow" data-i="${i}">
+        <span class="st">${t ? mockFmt(t) : '--:--'}</span>
+        <span class="lt">${esc(q.q)}</span>
+        <span class="st">${mark}</span>
+      </button>
+      <div class="mksum-model" hidden style="padding:0 4px 14px">
+        <div class="label">Model answer <button class="mini mk-saym" data-i="${i}" title="Listen">🔊</button></div>
+        <div class="paper">${esc(q.model)}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  box.querySelectorAll('.sumrow').forEach((b) => {
+    b.onclick = () => { const d = b.nextElementSibling; d.hidden = !d.hidden; };
+  });
+  box.querySelectorAll('.mk-saym').forEach((b) => {
+    b.onclick = (e) => { e.stopPropagation(); const q = qById(m.list[+b.dataset.i]); if (q) speak(q.model); };
+  });
+  $('#mk-again').onclick = renderMockSetup;
 }
 
 /* ---------- abas e inicialização ---------- */
 function showTab(t) {
   $$('.tab').forEach((b) => b.classList.toggle('active', b.dataset.tab === t));
-  ['treinar', 'simular', 'kit'].forEach((x) => {
+  ['treinar', 'mock', 'kit'].forEach((x) => {
     const el = $('#tab-' + x);
     if (el) el.hidden = (x !== t);
   });
   if (window.speechSynthesis) speechSynthesis.cancel();
   stopMic();
   if (t === 'treinar') { if (!state.order.length) buildOrder(); renderTrain(); renderListPanel(); }
-  if (t === 'simular' && !state.sim) renderSimSetup();
+  if (t === 'mock') { renderMock(); } else { mockStop(); }
 }
 
 document.addEventListener('click', (e) => {
@@ -1696,9 +1644,6 @@ function applySafeTop() {
   } catch (e) {}
   if (!standalone) return;
   document.body.classList.add('pwa');
-  const probe = $('#safeprobe');
-  const inset = probe ? probe.getBoundingClientRect().height : 0;
-  if (inset < 20) document.body.classList.add('pwa-fixed');
 }
 
 (async function init() {
@@ -1716,7 +1661,7 @@ function applySafeTop() {
   const sh = $('#t-shuffle');
   sh.onclick = () => {
     state.shuffle = !state.shuffle;
-    sh.textContent = state.shuffle ? 'Ordem: aleatória' : 'Ordem: sequencial';
+    sh.textContent = state.shuffle ? 'Order: random' : 'Order: sequential';
     sh.classList.toggle('active', state.shuffle);
     tReset(); stopMic();
     buildOrder(); renderTrain(); renderListPanel();
@@ -1731,28 +1676,9 @@ function applySafeTop() {
   tm.onclick = () => {
     state.testMode = !state.testMode;
     tm.classList.toggle('active', state.testMode);
-    tm.textContent = state.testMode ? 'Modelos ocultos' : 'Ocultar modelos';
+    tm.textContent = state.testMode ? 'Models hidden' : 'Hide models';
     renderTrain();
   };
-
-  const cfgBtn = $('#cfg'), cfgPanel = $('#cfg-panel');
-  if (cfgBtn && cfgPanel) {
-    const paintCfg = () => {
-      const st = $('#cfg-state');
-      if (st) st.textContent = state.apiKey ? 'Chave salva neste aparelho.' : 'Nenhuma chave salva.';
-    };
-    cfgBtn.onclick = () => { cfgPanel.hidden = !cfgPanel.hidden; paintCfg(); };
-    $('#cfg-save').onclick = () => {
-      const v = $('#cfg-key').value.trim();
-      if (!v) return;
-      state.apiKey = v;
-      storeSet('ir-apikey', v);
-      $('#cfg-key').value = '';
-      paintCfg();
-      cfgPanel.hidden = true;
-    };
-    $('#cfg-del').onclick = () => { state.apiKey = ''; storeDel('ir-apikey'); paintCfg(); };
-  }
 
   await loadProgress();
   buildOrder();
